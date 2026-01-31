@@ -1,0 +1,68 @@
+# Core científico / análisis de datos
+numpy
+pandas
+scipy
+statsmodels
+scikit-learn
+
+# Visualización
+matplotlib
+seaborn
+plotly
+altair
+bokeh
+kaleido
+
+# ML avanzado
+xgboost
+lightgbm
+catboost
+imbalanced-learn
+optuna
+shap
+
+# Deep Learning (nota: torch/tensorflow pueden requerir wheels específicos según CPU/GPU)
+tensorflow
+torch
+torchvision
+torchaudio
+
+# Utilidades
+click
+rich
+tqdm
+joblib
+requests
+
+# SQL
+SQLAlchemy
+psycopg2-binary
+PyMySQL
+
+# Imágenes / visión
+Pillow
+scikit-image
+opencv-python
+
+# Archivos / formatos
+openpyxl
+xlrd
+h5py
+beautifulsoup4
+lxml
+reportlab
+
+# Jupyter / notebooks
+jupyterlab
+notebook
+ipykernel
+ipywidgets
+nbconvert
+rise
+jupyter_contrib_nbextensions
+
+# Otros
+kaggle
+mlflow
+bioinfokit
+weasyprint
