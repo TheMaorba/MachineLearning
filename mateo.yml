@@ -1,0 +1,14 @@
+name: mateo
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  
+  - python=3.11
+  
+  # Librerias basicas python
+  # Tengo que usar este comando conda config --set channel_priority strict
+  - numpy
+  - pandas
+  - scipy
+  
