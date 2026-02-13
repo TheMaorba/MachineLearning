@@ -4,3 +4,9 @@
 
 
 Para el siguiente repositorio se estan gestionando las librerias desde un entorno virtual de conda con python 3.11
+
+Se estan tomando algunos data de UCI
+
+https://archive.ics.uci.edu/
+
+
