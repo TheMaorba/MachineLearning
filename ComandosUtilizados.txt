@@ -1,0 +1,26 @@
+COMANDOS DE INSTALACIÓN PARA LAS LIBRERÍAS DATA MINING
+==========================================
+
+=== OPCIÓN 1: USANDO ANACONDA (RECOMENDADO) ===
+
+Instalar librerías individuales con conda:
+   conda install pandas
+   conda install scikit-learn
+   conda install numpy
+   conda install matplotlib
+
+Instalar todas las librerías en un solo comando:
+   conda install pandas scikit-learn numpy matplotlib
+
+
+=== OPCIÓN 2: USANDO PIP (Python estándar) ===
+
+Instalar librerías individuales con pip:
+   pip install pandas
+   pip install scikit-learn
+   pip install numpy
+   pip install matplotlib
+
+Instalar todas las librerías en un solo comando:
+   pip install pandas scikit-learn numpy matplotlib
+
