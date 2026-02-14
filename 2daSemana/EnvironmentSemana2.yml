@@ -1,0 +1,24 @@
+name: semana2
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy>=1.24.0
+  - pandas>=2.0.0
+  - matplotlib>=3.7.0
+  - scikit-learn>=1.3.0
+  - seaborn
+  - ydata_profiling
+  - ucimlrepo
+  - notebook
+  - ipywidgets
+  - nbconvert
+  - ipykernel
+  - pip
+  
+
+
+# conda create -n semana2 python=3.11
+# conda install pandas 
+# conda install numpy ipykernel notebook matplotlib scikit-learn
