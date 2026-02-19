@@ -1,0 +1,4330 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://la.mathworks.com/discovery/interpretability.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.ckimg{height:auto !important; max-width:300px;}</style>
+	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Learn about interpretability: how it works, why it matters, and how to use MATLAB to perform interpretability. Resources include videos, examples, and documentation covering interpretability and explainability.">
+
+	<link rel="icon" href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/favicon.20260125152344257.ico" type="image/x-icon">
+	<link rel="canonical" href="https://la.mathworks.com/discovery/interpretability.html">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@MathWorks">
+		
+		<meta name="twitter:image" content="https://la.mathworks.com/discovery/interpretability/_jcr_content/thumbnail.adapt.1200.medium.svg/1685567811097.svg">
+		<meta property="og:image:url" content="https://la.mathworks.com/discovery/interpretability/_jcr_content/thumbnail.adapt.1200.medium.svg/1685567811097.svg">
+		<meta property="og:image:secure_url" content="https://la.mathworks.com/discovery/interpretability/_jcr_content/thumbnail.adapt.1200.medium.svg/1685567811097.svg">
+	
+	<meta property="og:url" content="https://la.mathworks.com/discovery/interpretability.html">
+	<meta property="og:description" content="Learn about interpretability: how it works, why it matters, and how to use MATLAB to perform interpretability. Resources include videos, examples, and documentation covering interpretability and explainability.">
+	<meta property="og:title" content="Interpretability">
+	<meta property="og:type" content="website">
+	
+
+	
+
+	
+    
+<iframe src="javascript:void(0)" title="" role="presentation" style="width: 0px; height: 0px; border: 0px; display: none;" src="./Interpretability - MATLAB &amp; Simulink_files/saved_resource.html"></iframe><script type="text/javascript" async="" src="./Interpretability - MATLAB &amp; Simulink_files/ahy.js.descarga"></script><script type="text/javascript" async="" src="./Interpretability - MATLAB &amp; Simulink_files/insight.min.js.descarga"></script><script src="./Interpretability - MATLAB &amp; Simulink_files/186030155234771" async=""></script><script async="" src="./Interpretability - MATLAB &amp; Simulink_files/fbevents.js.descarga"></script><script async="" type="text/javascript" src="./Interpretability - MATLAB &amp; Simulink_files/cmp2.js.descarga"></script><script type="text/javascript" async="" src="./Interpretability - MATLAB &amp; Simulink_files/td.min.js.descarga"></script><script type="text/javascript" async="" src="./Interpretability - MATLAB &amp; Simulink_files/elqCfg.min.js.descarga"></script><script async="" type="text/javascript" src="./Interpretability - MATLAB &amp; Simulink_files/choice.js.descarga"></script><script src="./Interpretability - MATLAB &amp; Simulink_files/webvitals.min.20260125152344257.js.descarga"></script>
+
+
+
+
+	
+	
+
+	
+	
+	
+
+	
+
+	
+	
+		
+    
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/bootstrap5.min.20260125152344257.css" type="text/css">
+
+
+
+		
+    
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/bs5.min.20260125152344257.css" type="text/css">
+
+
+
+	
+	
+	
+	
+
+	<link href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-italic-300.20260125152344257.woff2" rel="preload" as="font" type="font/woff2" crossorigin="">
+	<link href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-italic-400.20260125152344257.woff2" rel="preload" as="font" type="font/woff2" crossorigin="">
+	<link href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-italic-500.20260125152344257.woff2" rel="preload" as="font" type="font/woff2" crossorigin="">
+	<link href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-italic-700.20260125152344257.woff2" rel="preload" as="font" type="font/woff2" crossorigin="">
+	<link href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-normal-300.20260125152344257.woff2" rel="preload" as="font" type="font/woff2" crossorigin="">
+	<link href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-normal-400.20260125152344257.woff2" rel="preload" as="font" type="font/woff2" crossorigin="">
+	<link href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-normal-500.20260125152344257.woff2" rel="preload" as="font" type="font/woff2" crossorigin="">
+	<link href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-normal-700.20260125152344257.woff2" rel="preload" as="font" type="font/woff2" crossorigin="">
+	<link href="https://la.mathworks.com/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/mathworks.20260125152344257.woff" rel="preload" as="font" type="font/woff" crossorigin="">
+
+	
+		<script id="analyticsDigitalData"> digitalData = {
+  "pageInstanceID" : "https://la.mathworks.com/discovery/interpretability.html",
+  "page" : {
+    "pageInfo" : {
+      "pageID" : "https://la.mathworks.com/discovery/interpretability.html",
+      "destinationURL" : "https://la.mathworks.com/discovery/interpretability.html"
+    },
+    "category" : {
+      "subCategory1" : "discovery/interpretability",
+      "pageType" : "disc"
+    },
+    "attributes" : {
+      "recommendationEntityId" : "157894cae5e4bcc099facb8d145cb8a65415b880"
+    }
+  },
+  "product" : [ {
+    "productInfo" : { }
+  } ],
+  "component" : [ ]
+};</script>
+		<script>(function(g,b,d,f){(function(a,c,d){if(a){var e=b.createElement("style");e.id=c;e.innerHTML=d;a.appendChild(e)}})(b.getElementsByTagName("head")[0],"at-body-style",d);setTimeout(function(){var a=b.getElementsByTagName("head")[0];if(a){var c=b.getElementById("at-body-style");c&&a.removeChild(c)}},f)})(window,document,"[class*='personalization-container']:not([id^='web-application']) {opacity: 0 !important}",1E3);</script> <script src="./Interpretability - MATLAB &amp; Simulink_files/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js.descarga" async=""></script>
+
+	
+	
+
+	
+
+	
+
+	<title>Interpretability - MATLAB &amp; Simulink</title>
+	
+
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Article",
+			"headline": "Interpretability",
+			"datePublished": "20230525T145448Z",
+			"dateModified": "20260114T105443Z",
+			"author": [{"@type":"Person","name":"Jianghao Wang","jobTitle":"Gerente senior de productos","description":"Jianghao Wang es gerente de producto senior de Deep Learning e IA en MathWorks. En su cargo, Jianghao colabora con usuarios y desarrolladores para afianzar y implementar la estrategia de producto de IA de MathWorks. Jianghao comenz\u00f3 las iniciativas de educaci\u00f3n en IA en MathWorks, apoyando a docentes e investigadores en proyectos de IA. Antes de trabajar en MathWorks, Jianghao obtuvo un Doctorado en Climatolog\u00eda Estad\u00edstica de la Universidad del Sur de California y una Licenciatura en Matem\u00e1ticas Aplicadas de la Universidad de Nankai."}],
+			"publisher": {
+				"@type": "Organization",
+				"name": "MathWorks"
+			},
+			"image": {
+				"@type": "ImageObject",
+				"url": "https://la.mathworks.com/discovery/interpretability/_jcr_content/thumbnail.adapt.1200.medium.svg/1685567811097.svg"
+			},
+			"mainEntityOfPage": {
+				"@type": "WebPage",
+				"@id": "https://la.mathworks.com/discovery/interpretability.html"
+			},
+			"description": "Learn about interpretability: how it works, why it matters, and how to use MATLAB to perform interpretability. Resources include videos, examples, and documentation covering interpretability and explainability."
+		}
+	</script>
+
+
+
+                              <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="LERXA-6VNES-W6PXS-U8C7F-BXSZH",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"LERXA-6VNES-W6PXS-U8C7F-BXSZH",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="xj2mykc4pjmpe2mw6uhq-f-6662552ac-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"39","ak.cp":"1460380","ak.ai":parseInt("195948",10),"ak.ol":"0","ak.cr":18,"ak.ipv":4,"ak.proto":"h2","ak.rid":"568e0e10","ak.r":46442,"ak.a2":e,"ak.m":"x","ak.n":"essl","ak.bpcip":"186.116.204.0","ak.cport":63181,"ak.gh":"92.122.156.153","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"","ak.t":"1771500815","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==mIkj2nbEfV2/VKvUZQ8edX0qxMc5E2tiKPaEO1dPoRGgGXLJeAznAfIPpWzVvSVK0Chv8nIwIbpYl2iUjuX4ey+vG0Gjx6hkRqpIsLpqwoV3rugHs0/7YDvhqHeRdg4IgwSMFQikOeh+3eu6D5a2LPsVXL09x/T+0IM94j6hXwvv1Ft743q1K0WvCO7+VkvvwulosL1iZwPOVeM+/xj5OBQE+h8Jl94oStZa4tqhhTFfOoAP63n1UL4hlyzhD9BCjVsEqWWBrr7Sh5w6lFQp5G66CngIa9Gi29rKaGXAasKjSJOXSpxcHpq/xf5s5BF/9yi1K4bblJLn2pUNr3bUBPqvucdW6wyR8bECu6Pfwgh1yOeAbdPr8pU22tl0hCfZ3H2XOG8YeUhwbGueaWSvAz8cXczChudui4XMqcmDqh4=","ak.pv":"296","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><script src="./Interpretability - MATLAB &amp; Simulink_files/AppMeasurement.min.js.descarga" async=""></script><script src="./Interpretability - MATLAB &amp; Simulink_files/AppMeasurement_Module_ActivityMap.min.js.descarga" async=""></script><style type="text/css"> .qc-cmp-button {    background-color: #0076a8 !important;    border-color: #0076a8 !important;  }  .qc-cmp-button:hover {    border-color: #0076a8 !important;  }  .qc-cmp-alt-action,  .qc-cmp-link {    color: #0076a8 !important;  }  .qc-cmp-button.qc-cmp-secondary-button:hover {    background-color: #0076a8 !important;    border-color: #0076a8 !important;  }  .qc-cmp-button.qc-cmp-secondary-button:hover {    color: #ffffff !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    color: #0076a8 !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    background-color: #eee !important;    border-color: transparent !important;  }  .qc-cmp-ui,  .qc-cmp-ui .qc-cmp-title,  .qc-cmp-ui .qc-cmp-table,  .qc-cmp-ui .qc-cmp-messaging,  .qc-cmp-ui .qc-cmp-sub-title,  .qc-cmp-ui .qc-cmp-vendor-list,  .qc-cmp-ui .qc-cmp-purpose-info,  .qc-cmp-ui .qc-cmp-table-header,  .qc-cmp-ui .qc-cmp-beta-messaging,  .qc-cmp-ui .qc-cmp-main-messaging,  .qc-cmp-ui .qc-cmp-vendor-list-title{    color: #1a1a1a !important;  }  .qc-cmp-ui a,  .qc-cmp-ui .qc-cmp-alt-action {    color: #0076a8 !important;  }  .qc-cmp-ui {    background-color: #fef9ed !important;  } .dvsjko.dvsjko.dvsjko.dvsjko .qc-cmp2-footer .qc-cmp2-summary-buttons button { border-radius: 4px; }.dvsjko.dvsjko.dvsjko.dvsjko .qc-cmp2-footer .qc-cmp2-summary-buttons button:last-child:hover { background-color: #3391b9; }.iicKQX.iicKQX .qc-cmp2-footer .qc-cmp2-buttons-desktop button { border-radius: 4px; }.iicKQX.iicKQX .qc-cmp2-footer .qc-cmp2-buttons-desktop button:last-of-type:hover { background-color: #3391b9; }.iicKQX.iicKQX .qc-cmp2-footer > button { border-radius: 4px; }</style><script src="./Interpretability - MATLAB &amp; Simulink_files/js" async=""></script><script src="./Interpretability - MATLAB &amp; Simulink_files/RC20a6019042b542298807cdc9e182767d-source.min.js.descarga" async=""></script><script src="./Interpretability - MATLAB &amp; Simulink_files/RCedfaed1d03de47189f18649f7e2d6cb0-source.min.js.descarga" async=""></script><script src="./Interpretability - MATLAB &amp; Simulink_files/last-event-tag-latest.min.js.descarga"></script><script src="./Interpretability - MATLAB &amp; Simulink_files/RC05fd1ce7514f4ecb83fb546a37c08e91-source.min.js.descarga" async=""></script><script src="./Interpretability - MATLAB &amp; Simulink_files/RC8318584d4b7944e681f067999d9ce5d7-source.min.js.descarga" async=""></script><style type="text/css" id="ki-rq2-rq4"></style><style type="text/css" id="ki-rq2-rr7"></style></head>
+
+
+
+	<body class="site_lang_es  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+ 		  -has_corporatenav
+		  
+		  
+		  
+		  " data-cid="mktg" data-new-gr-c-s-check-loaded="14.1274.0" data-gr-ext-installed="">
+		<a class="skip_link visually-hidden-focusable" href="https://la.mathworks.com/discovery/interpretability.html#main">Saltar al contenido</a>
+
+		
+
+	<header class="-has_matrix
+					 -has_mwa
+					 -has_store
+					 -has_topnav
+					 
+					 ">
+		<nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+			<div class="container-fluid container-lg">
+				<div class="d-lg-flex flex-row align-items-center" id="header_content_container">
+					<a href="https://la.mathworks.com/?s_tid=gn_logo" class="navbar-brand d-inline-block">
+						<img src="./Interpretability - MATLAB &amp; Simulink_files/mathworks-logo-rev.20260125152344257.svg" class="mw_logo" alt="MathWorks" width="148" height="30">
+						
+					</a>
+
+					
+
+					<div class="d-flex d-lg-none" id="global_mobile_actuator_container_search">
+						<button class="navbar-toggler btn collapsed" id="global_search_mobile_actuator" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#global_search_mobile" data-bs-target="#global_search_mobile" aria-controls="global_search_mobile" aria-expanded="false" aria-label="Toggle Search">
+							<span class="icon-search"></span>
+						</button>
+					</div>
+					<div class="navbar-collapse collapse" id="global_search_mobile">
+						<div id="global_search_mobile_placeholder"></div>
+						
+					</div>
+
+
+					<div class="d-flex d-lg-none" id="global_mobile_actuator_container_navigation">
+						<button class="navbar-toggler collapsed btn" id="global_navigation_mobile_actuator" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#global_navigation" data-bs-target="#global_navigation" aria-controls="global_navigation" aria-expanded="false" aria-label="Cambiar a Navegación Principal">
+							<span class="icon-menu-full"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="global_navigation">
+						
+						<div class="topNavigation topnavigation containsResourceName resourceClass-topnavigation">
+
+
+
+	<ul class="navbar-nav flex-grow-1 align-items-lg-center mb-0">
+		
+		
+			<li class="nav-item dropdown" id="globalnav_item_products">
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/products.html?s_tid=nav_products" class="nav-link ">
+
+		
+
+		
+			
+			Productos</a>
+
+		
+		
+	
+
+				
+			</li>
+		
+			<li class="nav-item dropdown" id="globalnav_item_solutions">
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/solutions.html?s_tid=nav_solutions" class="nav-link ">
+
+		
+
+		
+			
+			Soluciones</a>
+
+		
+		
+	
+
+				
+			</li>
+		
+			<li class="nav-item dropdown" id="globalnav_item_learn">
+				
+				
+					<a href="https://la.mathworks.com/discovery/interpretability.html#" class="nav-link dropdown-toggle active" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+						Aprendizaje
+					</a>
+					<div class="dropdown-menu">
+						<div class="container-lg">
+							<div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-lg-8 d-flex flex-column "><div class="aac60a99-7f7f-4d47-970e-aec00a5723ab parsys containsResourceName resourceClass-parsys"><div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-lg-4 "><div class="80698336-994f-499e-a17d-4016faea1756 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="globalnav_section_title">Formación</p>
+<ul class="list-unstyled">
+ <li><a href="https://matlabacademy.mathworks.com/?s_tid=nav_learn_mlac">Cursos online a su ritmo</a></li>
+ <li><a href="https://la.mathworks.com/learn/training.html?s_tid=nav_learn_training">Curso con instructor</a></li>
+ <li><a href="https://la.mathworks.com/learn/training/certification.html?s_tid=nav_learn_certification">Programa de certificación de MathWorks</a></li>
+</ul>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-lg-4 "><div class="755baf42-b699-4cd8-bc82-0bcca29bd064 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="globalnav_section_title">Eventos</p>
+<ul class="list-unstyled">
+ <li><a href="https://la.mathworks.com/company/events.html?s_tid=nav_learn_events">Eventos de MATLAB y Simulink</a></li>
+ <li><a href="https://la.mathworks.com/company/events/conferences/search-proceedings.html?s_tid=nav_learn_proceedings&amp;q=&amp;page=1">Presentaciones de eventos</a></li>
+ <li><a href="https://la.mathworks.com/videos/search.html?s_tid=nav_learn_webinars&amp;q=&amp;fq%5B%5D=video-external-category:recwebinar&amp;page=1">Webinars bajo demanda</a></li>
+</ul>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-lg-4 "><div class="7126096f-3d8e-44f5-bb5f-e82d4f1dc2e7 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="globalnav_section_title">Recursos de aprendizaje</p>
+<ul class="list-unstyled">
+ <li><a href="https://la.mathworks.com/academia/educators.html?s_tid=nav_learn_teach">Enseñanza con MATLAB</a></li>
+ <li><a href="https://la.mathworks.com/academia/research.html?s_tid=nav_learn_research">Investigación con MATLAB</a></li>
+ <li><a href="https://la.mathworks.com/academia/students.html?s_tid=nav_learn_students">Programas para estudiantes</a></li>
+ <li><a href="https://la.mathworks.com/academia/books.html?s_tid=nav_learn_books">Libros de texto</a></li>
+</ul>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  mt-auto d-none d-lg-block ">
+
+	
+		<div class=" col-lg-4 "><div class="49d1cea7-1177-44e0-aa7b-69d7774587ac parsys containsResourceName resourceClass-parsys"><div class="button containsResourceName resourceClass-button section">
+
+
+
+	
+	
+	
+	
+
+	<div class="d-grid">
+
+	<a href="https://la.mathworks.com/company/aboutus/contact_us.html?s_tid=nav_learn_contact" class="btn btn_color_blue add_margin_20 btn-outline " role="button">
+
+		
+
+		
+			
+			Información de contacto</a>
+
+		
+		
+	</div>
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+<div class="horizontalrule containsResourceName section resourceClass-horizontalrule">
+
+<hr>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  add_link_underline">
+	<p>Visite el <a href="https://www.mathworks.com/help/?s_tid=nav_learn_hc">Centro de ayuda</a> para explorar la documentación de nuestros productos, cooperar con la comunidad usuaria, consultar notas de versión y mucho más.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-lg-4 d-none d-lg-flex col-xl-3 offset-xl-1 "><div class="6c271095-d40d-4eba-b02a-657255faf52e parsys containsResourceName resourceClass-parsys"><div class="cqPanel containsResourceName resourceClass-panel section">
+
+
+
+<div class="panel panel-default  ">
+	
+
+	
+
+	
+	<div class="panel-heading add_background_cover add_min_height_150 https___la_mathworks_com_shared_content_corporate_nav_learn__jcr_content_mainParsys_columns_copy_6c271095_d40d_4eba_b02a_657255faf52e_panel_copy_headerImage" style="background-image: url(&#39;https://la.mathworks.com/shared-content/corporate-nav/learn/_jcr_content/mainParsys/columns_copy/6c271095-d40d-4eba-b02a-657255faf52e/panel_copy/headerImage.adapt.1200.low.jpg/1750353569401.jpg&#39;);">
+		
+
+	
+		
+			
+			<style data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/videos/video-portal-thumbnail.jpg">
+				@media screen and (min-width: 992px) { .https___la_mathworks_com_shared_content_corporate_nav_learn__jcr_content_mainParsys_columns_copy_6c271095_d40d_4eba_b02a_657255faf52e_panel_copy_headerImage { background-image: url(https://la.mathworks.com/shared-content/corporate-nav/learn/_jcr_content/mainParsys/columns_copy/6c271095-d40d-4eba-b02a-657255faf52e/panel_copy/headerImage.adapt.full.medium.jpg/1750353569401.jpg) !important; }}
+				@media screen and (min-width: 768px) and (max-width: 991px){ .https___la_mathworks_com_shared_content_corporate_nav_learn__jcr_content_mainParsys_columns_copy_6c271095_d40d_4eba_b02a_657255faf52e_panel_copy_headerImage { background-image: url(https://la.mathworks.com/shared-content/corporate-nav/learn/_jcr_content/mainParsys/columns_copy/6c271095-d40d-4eba-b02a-657255faf52e/panel_copy/headerImage.adapt.full.low.jpg/1750353569401.jpg) !important; }}
+			</style>
+		
+		
+		
+	
+
+		
+		
+			
+		
+	</div>
+
+	<div class="panel-body null">
+		
+			
+			
+				
+			
+			
+			<div class="panelParsys parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="h3 add_margin_5">Vídeos de MATLAB y Simulink</p>
+<p class="add_margin_10">Explore productos, vea demostraciones y descubra las novedades de productos.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="actionlink containsResourceName section resourceClass-actionlink">
+
+
+
+	
+	
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/videos.html?s_tid=nav_learn_spotlight_videos" class=" icon-chevron add_margin_20 add_margin_0 stretched-link ">
+
+		
+
+		
+			
+			Explore vídeos</a>
+
+		
+		
+	
+
+
+
+</div>
+
+</div>
+
+		
+	</div>
+
+	
+	
+
+</div>
+
+
+    
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/panel.min.20260125152344257.css" type="text/css">
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+
+</div>
+
+						</div>
+					</div>
+				
+			</li>
+		
+			<li class="nav-item dropdown" id="globalnav_item_company">
+				
+				
+					<a href="https://la.mathworks.com/discovery/interpretability.html#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+						Empresa
+					</a>
+					<div class="dropdown-menu">
+						<div class="container-lg">
+							<div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-lg-8 d-flex flex-column "><div class="aac60a99-7f7f-4d47-970e-aec00a5723ab parsys containsResourceName resourceClass-parsys"><div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-lg-4 "><div class="80698336-994f-499e-a17d-4016faea1756 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="globalnav_section_title">Empresa</p>
+<ul class="list-unstyled">
+ <li><a href="https://la.mathworks.com/company.html?s_tid=nav_company_about_us">Acerca de MathWorks</a></li>
+ <li><a href="https://la.mathworks.com/company/aboutus/mission_values.html?s_tid=nav_company_mv">Misión y valores</a></li>
+ <li><a href="https://la.mathworks.com/company/aboutus/soc_mission.html?s_tid=nav_company_sm">Misión social</a></li>
+ <li><a href="https://la.mathworks.com/company/aboutus/decarbonizing-mathworks.html?s_tid=nav_company_dc">Descarbonización en MathWorks</a></li>
+ <li><a href="https://la.mathworks.com/company/customer-stories.html?s_tid=nav_company_cs">Casos prácticos</a></li>
+</ul>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-lg-4 "><div class="755baf42-b699-4cd8-bc82-0bcca29bd064 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="globalnav_section_title">Ofertas de empleo
+</p>
+<ul class="list-unstyled">
+ <li><a href="https://la.mathworks.com/company/jobs/opportunities.html?s_tid=nav_company_careers">Visión general</a></li>
+ <li><a href="https://la.mathworks.com/company/jobs/opportunities/search/?s_tid=nav_company_jobs">Búsqueda de empleo</a></li>
+ <li><a href="https://la.mathworks.com/company/jobs/teams-roles.html?s_tid=nav_company_teams">Equipos y puestos laborales</a></li>
+</ul>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  mt-auto d-none d-lg-block ">
+
+	
+		<div class=" col-lg-4 "><div class="49d1cea7-1177-44e0-aa7b-69d7774587ac parsys containsResourceName resourceClass-parsys"><div class="button containsResourceName resourceClass-button section">
+
+
+
+	
+	
+	
+	
+
+	<div class="d-grid">
+
+	<a href="https://la.mathworks.com/company/aboutus/contact_us.html?s_tid=nav_company_contact" class="btn btn_color_blue add_margin_0 btn-outline " role="button">
+
+		
+
+		
+			
+			Información de contacto</a>
+
+		
+		
+	</div>
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-lg-4 d-none d-lg-flex col-xl-3 offset-xl-1 "><div class="6c271095-d40d-4eba-b02a-657255faf52e parsys containsResourceName resourceClass-parsys"><div class="cqPanel containsResourceName resourceClass-panel section">
+
+
+
+<div class="panel panel-default add_margin_0 ">
+	
+
+	
+
+	
+	<div class="panel-heading add_background_cover add_min_height_150 https___la_mathworks_com_shared_content_corporate_nav_company__jcr_content_mainParsys_columns_6c271095_d40d_4eba_b02a_657255faf52e_panel_headerImage" style="background-image: url(&#39;https://la.mathworks.com/shared-content/corporate-nav/company/_jcr_content/mainParsys/columns/6c271095-d40d-4eba-b02a-657255faf52e/panel/headerImage.adapt.1200.low.jpg/1769617422628.jpg&#39;);">
+		
+
+	
+		
+			
+			<style data-aem-src="/content/dam/mathworks/mathworks-dot-com/company/events/images/decarbonization-spotlight.jpg">
+				@media screen and (min-width: 992px) { .https___la_mathworks_com_shared_content_corporate_nav_company__jcr_content_mainParsys_columns_6c271095_d40d_4eba_b02a_657255faf52e_panel_headerImage { background-image: url(https://la.mathworks.com/shared-content/corporate-nav/company/_jcr_content/mainParsys/columns/6c271095-d40d-4eba-b02a-657255faf52e/panel/headerImage.adapt.full.medium.jpg/1769617422628.jpg) !important; }}
+				@media screen and (min-width: 768px) and (max-width: 991px){ .https___la_mathworks_com_shared_content_corporate_nav_company__jcr_content_mainParsys_columns_6c271095_d40d_4eba_b02a_657255faf52e_panel_headerImage { background-image: url(https://la.mathworks.com/shared-content/corporate-nav/company/_jcr_content/mainParsys/columns/6c271095-d40d-4eba-b02a-657255faf52e/panel/headerImage.adapt.full.low.jpg/1769617422628.jpg) !important; }}
+			</style>
+		
+		
+		
+	
+
+		
+		
+			
+		
+	</div>
+
+	<div class="panel-body null">
+		
+			
+			
+				
+			
+			
+			<div class="panelParsys parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="h3 add_margin_5">Descarbonización en MathWorks</p>
+<p class="add_margin_10">Descubra cómo MathWorks protege y restablece los recursos naturales.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="actionlink containsResourceName section resourceClass-actionlink">
+
+
+
+	
+	
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/company/aboutus/decarbonizing-mathworks.html?s_tid=nav_company_spotlight_dc" class=" icon-chevron add_margin_20 add_margin_0 stretched-link ">
+
+		
+
+		
+			
+			Más información</a>
+
+		
+		
+	
+
+
+
+</div>
+
+</div>
+
+		
+	</div>
+
+	
+	
+
+</div>
+
+
+    
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+
+</div>
+
+						</div>
+					</div>
+				
+			</li>
+		
+			<li class="nav-item dropdown -alignment_lg_end" id="globalnav_item_help">
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/help/?s_tid=nav_help_doc" class="nav-link ">
+
+		
+
+		
+			
+			Centro de ayuda</a>
+
+		
+		
+	
+
+				
+			</li>
+		
+
+		
+		<li class="nav-item  d-none d-lg-block -alignment_lg_end" id="globalnav_item_matlab">
+			
+	
+	
+	
+
+	
+
+	<a href="https://login.mathworks.com/embedded-login/landing.html?cid=getmatlab&amp;s_tid=gn_getml" style="" class="not-logged-in btn btn_color_orange ">
+
+		
+
+		
+			
+			Obtenga MATLAB</a>
+
+		
+		
+	
+
+			
+	
+	
+	
+
+	
+
+	<a href="https://login.mathworks.com/embedded-login/landing.html?cid=getmatlab&amp;s_tid=gn_getml" style="display:none;" class="logged-in btn btn_color_orange ">
+
+		
+
+		
+			
+			MATLAB</a>
+
+		
+		
+	
+
+
+			
+			
+
+		</li>
+
+		
+		
+			<li class="nav-item dropdown -alignment_lg_end" id="globalnav_item_mwa">
+				<a href="https://login.mathworks.com/embedded-login/signin.html?cid=mktg&amp;wid=gnav&amp;uri=https%3A%2F%2Fla.mathworks.com%2Fdiscovery%2Finterpretability.html" class="nav-link headernav_login mwa-nav_login" id="mwanav_item_login" style="" aria-label="Inicie sesión cuenta de MathWorks">
+					Inicie sesión
+				</a>
+
+				<a href="https://la.mathworks.com/discovery/interpretability.html#" class="nav-link headernav_logout dropdown-toggle" id="mwanav_actuator" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="display: none;" title="Acceda a su cuenta de MathWorks">
+					<span class="mwanav_avatar mwa_image_drop_down"></span>
+					<span class="mobile_account_name visually_hidden_xxl visually_hidden_xl visually_hidden_lg hidden-md hidden-lg"></span>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-lg-end" id="mwanav_dropdown_menu">
+					<li id="mwanav_item_account"><a class="mwa-account dropdown-item">Mi Cuenta</a></li>
+					<li id="mwanav_item_community"><a class="mwa-community-profile dropdown-item">Mi perfil de la comunidad</a></li>
+					<li id="mwanav_item_associate"><a class="mwa-link-license dropdown-item">Asociar Licencia</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li id="mwanav_item_logout"><a class="mwa-logout dropdown-item">Cerrar sesión</a></li>
+				</ul>
+			</li>
+		
+
+		<li class="nav-item d-block d-lg-none" id="globalnav_item_mobile_divider"><hr class="dropdown-divider"></li>
+
+		<li class="nav-item d-block d-sm-flex gap-3 d-lg-none" id="globalnav_item_mobile_ctas">
+			
+				
+	
+	
+	
+
+	
+
+	<a href="https://login.mathworks.com/embedded-login/landing.html?cid=getmatlab&amp;s_tid=gn_getml" style="" class="not-logged-in btn btn-outline btn_color_orange d-block flex-grow-1 companion_btn ">
+
+		
+
+		
+			
+			Obtenga MATLAB</a>
+
+		
+		
+	
+
+				
+	
+	
+	
+
+	
+
+	<a href="https://login.mathworks.com/embedded-login/landing.html?cid=getmatlab&amp;s_tid=gn_getml" style="display:none !important;" class="logged-in btn btn-outline btn_color_orange d-block flex-grow-1 companion_btn ">
+
+		
+
+		
+			
+			MATLAB</a>
+
+		
+		
+	
+
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/company/aboutus/contact_us.html?s_tid=gn_ps" class="btn btn-outline btn_color_blue d-block flex-grow-1 companion_btn ">
+
+		
+
+		
+			
+			Información de contacto</a>
+
+		
+		
+	
+
+			
+		</li>
+
+		
+
+		
+
+		<li class="nav-item dropdown d-none d-lg-block -alignment_lg_end" id="globalnav_item_search">
+			<a href="https://la.mathworks.com/discovery/interpretability.html#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Buscar"><span class="icon-search"></span></a>
+			<div class="dropdown-menu">
+				<div class="container-lg">
+					<div class="row align-items-center">
+						
+						<div class="col-12 col-lg-4">
+							<p class="h1">Buscar</p>
+						</div>
+						<div class="col-12 col-lg-8">
+							<div id="global_search_desktop_placeholder"></div><div id="global_search_container">
+							<div class="sectionHeadSearchBox sectionheadsearchbox containsResourceName resourceClass-sectionheadsearchbox">
+
+	
+		
+		<form name="search" id="site_search" class="site_search" action="https://la.mathworks.com/search.html" method="get">
+			<div class="input-group">
+				<label id="search-mathworks" class="visually-hidden sr-only" for="query">Buscar MathWorks.com</label>
+				<input type="hidden" name="c[]" value="entire_site">
+				<input type="search" name="q" id="query" class="form-control rounded-start" placeholder="Buscar MathWorks.com" autocomplete="off" data-site-domain="la" data-site-language="es">
+				<button type="submit" id="searchbutton" class="btn btn_color_blue icon-search" aria-label="Buscar"></button>
+			</div>
+		</form>
+	
+
+	
+
+	
+
+</div>
+
+						</div>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+		</li>
+
+		
+	</ul>
+
+
+	
+
+
+</div>
+
+					</div>
+				</div>
+
+				
+			</div>
+		</nav>
+	</header>
+
+
+
+		
+
+
+	<div class="sticky-top -locked -is_locked" id="sticky_container">
+		
+		<div class="sectionHead sectionhead containsResourceName resourceClass-sectionhead">
+
+	<div class="section_banner" id="section_banner">
+		<div class="container-fluid container-lg">
+			<div class="row align-items-center">
+				<div class="col-12">
+					<div class="section_banner_title">
+						
+						<h1>
+							
+							Interpretability
+						</h1>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+</div>
+
+		
+		
+	</div>
+
+
+
+
+
+		
+
+		<div class="content_container" id="content_container">
+			
+				
+
+<main id="main" tabindex="-1">
+	
+	<section><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="cqBand containsResourceName section resourceClass-band">
+
+
+
+
+<div class="band add_background_color_mediumgray d-flex align-items-end  section_upsize add_min_height_250 add_min_height_150_xs  https___la_mathworks_com_discovery_interpretability__jcr_content_mainParsys_band_backgroundImage" style="background-image: url(&#39;https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band/backgroundImage.adapt.full.low.jpg/1768388082449.jpg&#39;);">
+	
+
+	
+		
+			<style data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/machine-learning/machine-learning-discovery-banner.jpg">
+				@media screen and (min-width: 768px) { .https___la_mathworks_com_discovery_interpretability__jcr_content_mainParsys_band_backgroundImage { background-image: url(https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band/backgroundImage.adapt.full.medium.jpg/1768388082449.jpg) !important; }}
+			</style>
+			
+		
+		
+		
+	
+
+	
+		<div class="container-fluid container-lg">
+			<div class="row">
+				<div class="col-12">
+					<div><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h2 class="h1 text-sm-start text-center text_center_xs">What Is Interpretability?</h2>
+<h3 class=" text-sm-start text-center text_center_xs h2">How it works, why it matters, and how to apply it</h3>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+				</div>
+			</div>
+		</div>
+	
+	
+    
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/band.min.20260125152344257.css" type="text/css">
+
+
+
+</div></div>
+<div class="cqBand containsResourceName section resourceClass-band">
+
+
+
+
+<div class="band add_background_color_gray  section_upsize  ">
+	
+	
+		<div class="container-fluid container-lg">
+			<div class="row">
+				<div class="col-12">
+					<div><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text add_margin_40 ">
+	<p>Interpretability is the degree to which machine learning algorithms can be understood by humans. More specifically, interpretability describes the ability to understand the reasoning behind predictions and decisions made by a machine learning model.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+				</div>
+			</div>
+		</div>
+	
+	
+    
+
+
+
+</div></div>
+<div class="cqBand containsResourceName section resourceClass-band">
+
+
+
+
+<div class="band  section_upsize  ">
+	
+	
+		<div class="container-fluid container-lg">
+			<div class="row">
+				<div class="col-12">
+					<div><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="lockedsubnav containsResourceName resourceClass-lockedsubnav section">
+<div>
+	<div class="sticky_anchornav_container   ">
+		<div class="sticky_anchornav_sidebar">
+			<nav id="sticky_anchornav" aria-label="On This Page">
+				<div class="sticky_anchornav_header"><div class="mainParsys2 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="category_label add_font_color_orange"><b>Table of Contents</b></p>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+				<ul class="nav list-unstyled">
+					
+						<li class="nav-item "><a class="nav-link" href="https://la.mathworks.com/discovery/interpretability.html#how-it-works">How Interpretability Works</a>
+						</li>
+					
+						<li class="nav-item "><a class="nav-link active" href="https://la.mathworks.com/discovery/interpretability.html#why-it-matters">Why Interpretability Matters</a>
+						</li>
+					
+						<li class="nav-item "><a class="nav-link" href="https://la.mathworks.com/discovery/interpretability.html#with-matlab">Interpretability with MATLAB</a>
+						</li>
+					
+				</ul>
+				<div class="sticky_anchornav_footer"><div class="mainParsys3 parsys containsResourceName resourceClass-parsys">
+</div>
+</div>
+			</nav>
+		</div>
+		<div class="sticky_anchornav_body" data-bs-spy="scroll" data-bs-target="#sticky_anchornav" tabindex="0">
+			<div><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h2><a id="how-it-works"></a>How Interpretability Works</h2>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="horizontalrule containsResourceName section resourceClass-horizontalrule">
+
+<hr>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Interpretability techniques help to reveal how machine learning models make predictions. By uncovering how various features contribute (or do not contribute) to predictions, interpretability techniques can help you validate that a machine learning model is using appropriate evidence for predictions and find biases in your model that were not apparent during training. Some <a href="https://la.mathworks.com/discovery/machine-learning-models.html">machine learning models</a>, such as linear regression, decision trees, and generative additive models are inherently interpretable. However, interpretability often comes at the expense of power and accuracy, as illustrated in Figure 1.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-md-6 offset-md-3 "><div class="f6dad55a-3c00-4ebb-93af-109b5baa2968 parsys containsResourceName resourceClass-parsys"><div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				<figure class="figure image_container -has_zoom ">
+					<a href="https://la.mathworks.com/discovery/interpretability.html#" class="figure_img_link" data-bs-toggle="modal" data-bs-target="#modal-e345a388-030e-491f-973c-9fd4a5a5f003">
+
+						
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082715.svg" alt="Graph showing machine learning algorithms plotted with interpretability on the x-axis versus their predictive power on the y-axis." width="691" height="615" loading="lazy" class="responsiveImage img-fluid figure-img remove_border" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig1-tradeoff-performance-interpretability-graph.svg">
+		
+	
+
+
+						<div class="overlay_container">
+							<span class="icon-zoomin add_icon_color_white"></span>
+						</div>
+						
+					</a>
+					
+					
+	<figcaption class="figure-caption caption">
+		<p>Figure 1. Tradeoff between performance and interpretability for multiple popular machine learning algorithms.</p>
+
+	</figcaption>
+
+					
+				</figure>
+
+				
+
+				
+				
+		</div>
+
+		
+    
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/image.min.20260125152344257.css" type="text/css">
+
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h3>Interpretability versus Explainability</h3>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p><a href="https://blogs.mathworks.com/deep-learning/2022/12/30/what-is-explainable-ai/">Explainable AI</a> is an emerging field where the closely related terms interpretability and explainability are often used interchangeably. However, interpretability and explainability are different. Explainability refers to explaining the behavior of a machine learning model in human terms, without necessarily understanding the model’s inner mechanisms. Explainability can also be viewed as model-agnostic interpretability.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>For engineers, one approach to explain the behavior of a system is by using first principles. A first-principles model has clear, explainable physical meaning, and its behavior can be parameterized. That type of model is known as “white box.” The behavior of machine learning models is more “opaque.”</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Machine learning models vary in complexity, intuitiveness of knowledge representation, and, thus, difficulty to fully understand how they work. Machine learning models can be “gray box,” in which case you can apply interpretability techniques to understand their inner mechanisms, or “black box,” in which case you can apply explainability (or model-agnostic interpretability) techniques to understand their behavior. <a href="https://la.mathworks.com/products/deep-learning/models.html">Deep learning models</a> are typically black box.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				
+
+				
+
+				
+				<figure class="figure image_container ">
+					
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082750.jpg" alt="Gradated bar starting with black box, on the left, representing explainable machine learning modes, to gray box, in the middle, for interpretable machine learning models, to white box, on the right, for first-principles models." width="1300" height="243" sizes="100vw" loading="lazy" class="responsiveImage img-fluid figure-img fluid_image remove_border" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/image.adapt.150.medium.jpg/1768388082750.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/image.adapt.320.medium.jpg/1768388082750.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/image.adapt.480.medium.jpg/1768388082750.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/image.adapt.620.medium.jpg/1768388082750.jpg 620w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/image.adapt.1200.medium.jpg/1768388082750.jpg 1200w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/image.adapt.full.medium.jpg/1768388082750.jpg 1300w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-interpretability-techniques.jpg">
+		
+	
+
+
+					
+	<figcaption class="figure-caption caption">
+		<p>Figure 2. Interpretability techniques can be applied to “gray-box” models, whereas for “black-box” models, you typically use explainability techniques.</p>
+
+	</figcaption>
+
+				</figure>
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h3>Global and Local Interpretability Methods</h3>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Interpretability is typically applied at two levels:</p>
+<ul>
+ <li><b>Global Methods</b>: These interpretability methods provide an overview of the most influential variables in the model based on input data and predicted output.</li>
+ <li><b>Local Methods</b>: These interpretability methods provide an explanation of a single prediction result.</li>
+</ul>
+<p>Figure 3 illustrates the difference between the local and global scope of interpretability. You can also apply interpretability to groups within your data and arrive at conclusions at the group level, such as why a group of manufactured products were classified as faulty.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-md-8 offset-md-2 "><div class="788275eb-cfb6-4a05-803e-be77d928b1e4 parsys containsResourceName resourceClass-parsys"><div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				<figure class="figure image_container -has_zoom ">
+					<a href="https://la.mathworks.com/discovery/interpretability.html#" class="figure_img_link" data-bs-toggle="modal" data-bs-target="#modal-cd5aa7bd-2b89-41d9-b164-545b8a8a0c23">
+
+						
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082785.svg" alt="Graph with dots grouped into regions representing global and local interpretability." width="1000" height="430" loading="lazy" class="responsiveImage img-fluid figure-img fluid_image remove_border" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig2-local-global-interpretation-graph.svg">
+		
+	
+
+
+						<div class="overlay_container">
+							<span class="icon-zoomin add_icon_color_white"></span>
+						</div>
+						
+					</a>
+					
+					
+	<figcaption class="figure-caption caption">
+		<p>Figure 3. Global vs. local interpretability: The two classes are represented by purple and orange dots.</p>
+
+	</figcaption>
+
+					
+				</figure>
+
+				
+
+				
+				
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h3>Get Started with Interpretability Examples in MATLAB</h3>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Popular techniques for local interpretability include local interpretable model-agnostic explanations (LIME) and Shapley values. For global interpretability, many users start with feature ranking (or importance) and visualizing partial dependence plots. You can apply these techniques using MATLAB<sup>®</sup>, as shown in these examples:</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  add_equal_heights">
+
+	
+		<div class=" col-12 col-sm-4 "><div class="29bd1090-99bf-474a-ae9b-4c31b1789d25 parsys containsResourceName resourceClass-parsys"><div class="cqThumbnail containsResourceName resourceClass-thumbnail section">
+
+
+
+
+
+
+		
+		
+    
+
+
+
+		<div class="figure_container  ">
+				<figure class="figure image_container -has_asset_overlay -presentation_horizontal_xs">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+							<div class="col-6 col-sm-12">
+								
+		
+		
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/help/stats/train-generalized-additive-model-for-binary-classification.html" class="figure_img_link " title="Interpret Generalized Additive Model Using Partial Dependence">
+
+		
+			
+			
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082835.jpg" alt="Interpret Generalized Additive Model Using Partial Dependence" width="560" height="420" sizes="100vw" loading="lazy" class="responsiveImage figure-img border" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/29bd1090-99bf-474a-ae9b-4c31b1789d25/thumbnail.adapt.150.medium.jpg/1768388082835.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/29bd1090-99bf-474a-ae9b-4c31b1789d25/thumbnail.adapt.320.medium.jpg/1768388082835.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/29bd1090-99bf-474a-ae9b-4c31b1789d25/thumbnail.adapt.480.medium.jpg/1768388082835.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/29bd1090-99bf-474a-ae9b-4c31b1789d25/thumbnail.adapt.full.medium.jpg/1768388082835.jpg 560w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-thumbnail1.jpg">
+		
+	
+
+			
+			
+		
+
+		</a>
+
+		
+		
+	
+
+
+							</div>
+							<div class="col-6 col-sm-12">
+								
+	<figure>
+		<figcaption class="figure-caption">
+			
+			<p>
+				
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/help/stats/train-generalized-additive-model-for-binary-classification.html" class=" " title="Interpret Generalized Additive Model Using Partial Dependence">
+
+		
+
+		
+			
+			Interpret Generalized Additive Model Using Partial Dependence</a>
+
+		
+		
+	
+
+		</p>
+			
+		
+		
+		
+		
+		</figcaption>
+	</figure>
+
+							</div>
+						
+					</div>
+				</figure>
+		</div>
+
+
+
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-sm-4 "><div class="85e7bd1b-42d6-4d3b-83b2-e6d98acbeb12 parsys containsResourceName resourceClass-parsys"><div class="cqThumbnail containsResourceName resourceClass-thumbnail section">
+
+
+
+
+
+
+		
+		
+    
+
+
+
+		<div class="figure_container  ">
+				<figure class="figure image_container -has_asset_overlay -presentation_horizontal_xs">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+							<div class="col-6 col-sm-12">
+								
+		
+		
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/help/deeplearning/ug/understand-network-predictions-using-lime.html" class="figure_img_link " title="Understand Network Predictions Using LIME">
+
+		
+			
+			
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082846.jpg" alt="Understand Network Predictions Using LIME" width="516" height="429" sizes="100vw" loading="lazy" class="responsiveImage figure-img border" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/85e7bd1b-42d6-4d3b-83b2-e6d98acbeb12/thumbnail.adapt.150.medium.jpg/1768388082846.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/85e7bd1b-42d6-4d3b-83b2-e6d98acbeb12/thumbnail.adapt.320.medium.jpg/1768388082846.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/85e7bd1b-42d6-4d3b-83b2-e6d98acbeb12/thumbnail.adapt.480.medium.jpg/1768388082846.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/85e7bd1b-42d6-4d3b-83b2-e6d98acbeb12/thumbnail.adapt.full.medium.jpg/1768388082846.jpg 516w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interepretability-discovery-page-thumbnail2.jpg">
+		
+	
+
+			
+			
+		
+
+		</a>
+
+		
+		
+	
+
+
+							</div>
+							<div class="col-6 col-sm-12">
+								
+	<figure>
+		<figcaption class="figure-caption">
+			
+			<p>
+				
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/help/deeplearning/ug/understand-network-predictions-using-lime.html" class=" " title="Understand Network Predictions Using LIME">
+
+		
+
+		
+			
+			Understand Network Predictions Using LIME</a>
+
+		
+		
+	
+
+		</p>
+			
+		
+		
+		
+		
+		</figcaption>
+	</figure>
+
+							</div>
+						
+					</div>
+				</figure>
+		</div>
+
+
+
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-sm-4 "><div class="d7977e91-3c89-46fd-96db-5ea6cc5ec6bf parsys containsResourceName resourceClass-parsys"><div class="cqThumbnail containsResourceName resourceClass-thumbnail section">
+
+
+
+
+
+
+		
+		
+    
+
+
+
+		<div class="figure_container  ">
+				<figure class="figure image_container -has_asset_overlay -presentation_horizontal_xs">
+					<div class="row">
+						
+						
+						
+						
+						
+						
+						
+						
+							<div class="col-6 col-sm-12">
+								
+		
+		
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/help/stats/shapley-values-for-machine-learning-model.html" class="figure_img_link " title="Interpret Machine Learning Model Using Shapley Values">
+
+		
+			
+			
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082857.jpg" alt="Interpret Machine Learning Model Using Shapley Values" width="560" height="420" sizes="100vw" loading="lazy" class="responsiveImage figure-img border" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/d7977e91-3c89-46fd-96db-5ea6cc5ec6bf/thumbnail.adapt.150.medium.jpg/1768388082857.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/d7977e91-3c89-46fd-96db-5ea6cc5ec6bf/thumbnail.adapt.320.medium.jpg/1768388082857.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/d7977e91-3c89-46fd-96db-5ea6cc5ec6bf/thumbnail.adapt.480.medium.jpg/1768388082857.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns/d7977e91-3c89-46fd-96db-5ea6cc5ec6bf/thumbnail.adapt.full.medium.jpg/1768388082857.jpg 560w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-thumbnail3.jpg">
+		
+	
+
+			
+			
+		
+
+		</a>
+
+		
+		
+	
+
+
+							</div>
+							<div class="col-6 col-sm-12">
+								
+	<figure>
+		<figcaption class="figure-caption">
+			
+			<p>
+				
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/help/stats/shapley-values-for-machine-learning-model.html" class=" " title="Interpret Machine Learning Model Using Shapley Values">
+
+		
+
+		
+			
+			Interpret Machine Learning Model Using Shapley Values</a>
+
+		
+		
+	
+
+		</p>
+			
+		
+		
+		
+		
+		</figcaption>
+	</figure>
+
+							</div>
+						
+					</div>
+				</figure>
+		</div>
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+<div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				
+
+				
+
+				
+				<figure class="figure image_container ">
+					
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082889.svg" alt="section" width="100" height="8" loading="lazy" class="responsiveImage img-fluid figure-img remove_border" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/pictograms/section-marker.svg">
+		
+	
+
+
+					
+	
+
+				</figure>
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text add_margin_30 ">
+	<h2><a id="why-it-matters"></a>Why Interpretability Matters</h2>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="horizontalrule containsResourceName section resourceClass-horizontalrule">
+
+<hr>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Engineers and scientists seek model interpretability for three main reasons:</p>
+<ul>
+ <li><b>Debugging</b>: Understanding where or why predictions go wrong. Running “what-if” scenarios can improve model robustness and eliminate bias.</li>
+ <li><b>Guidelines</b>: Black-box or gray-box models may violate industry best practices.</li>
+ <li><b>Regulations</b>: Some government regulations require interpretability for sensitive applications, such as finance, public health, and transportation.</li>
+</ul>
+<p>Model interpretability addresses these concerns and increases trust in the models in situations where explanations for predictions are important, such as when comparing results between competing models, or necessary, such as when interpretability is required by regulation.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h3>Applications Where Interpretability Matters</h3>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Interpretability tools help you understand why a machine learning model makes the predictions that it does. Interpretability is likely to become increasingly relevant as regulatory and professional bodies continue to work toward a framework for certifying AI for sensitive applications, such as:</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-sm-4 "><div class="9799bb0e-44cb-4c7f-9312-034fd51048df parsys containsResourceName resourceClass-parsys"><div class="mediaobject containsResourceName resourceClass-mediaobject section">
+
+
+	
+	<div class="media  ">
+	<div class="d-flex align-items-start">
+		<div class="flex-shrink-0 pe-3 ">
+			
+			
+			
+
+	
+		
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082961.svg" alt="" width="102" height="102" loading="lazy" class="responsiveImage pictogram_56" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/pictograms/automated-driving.svg">
+	
+
+
+		</div>
+		<div class="flex-grow-1 ">
+			
+			<div><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h4 class="add_padding_top_10"><a href="https://la.mathworks.com/solutions/automated-driving.html" data-link="lead" data-offertype="Web Trial Request for Automated Driving" data-component="text"> Automated Driving Systems</a></h4>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+		</div>
+	</div>
+	</div>
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-sm-4 "><div class="90d15dbb-dc89-432b-899a-a74f8e00bbd7 parsys containsResourceName resourceClass-parsys"><div class="mediaobject containsResourceName resourceClass-mediaobject section">
+
+
+	
+	<div class="media  ">
+	<div class="d-flex align-items-start">
+		<div class="flex-shrink-0 pe-3 ">
+			
+			
+			
+
+	
+		
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082980.svg" alt="" width="102" height="102" loading="lazy" class="responsiveImage pictogram_56" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/pictograms/medical.svg">
+	
+
+
+		</div>
+		<div class="flex-grow-1 ">
+			
+			<div><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h4 class="add_padding_top_10"><a href="https://la.mathworks.com/solutions/medical-devices.html">Medical Devices</a></h4>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+		</div>
+	</div>
+	</div>
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-sm-4 "><div class="87694735-e5dc-411a-a920-6ca96d9b20c6 parsys containsResourceName resourceClass-parsys"><div class="mediaobject containsResourceName resourceClass-mediaobject section">
+
+
+	
+	<div class="media  ">
+	<div class="d-flex align-items-start">
+		<div class="flex-shrink-0 pe-3 ">
+			
+			
+			
+
+	
+		
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082999.svg" alt="" width="102" height="102" loading="lazy" class="responsiveImage pictogram_56" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/pictograms/computationalfinance1.svg">
+	
+
+
+		</div>
+		<div class="flex-grow-1 ">
+			
+			<div><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h4 class="add_padding_top_10"><a href="https://la.mathworks.com/solutions/finance-and-risk-management/machine-learning.html">Computational Finance</a></h4>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+		</div>
+	</div>
+	</div>
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+<div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				
+
+				
+
+				
+				<figure class="figure image_container ">
+					
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083015.svg" alt="section" width="100" height="8" loading="lazy" class="responsiveImage img-fluid figure-img remove_border" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/pictograms/section-marker.svg">
+		
+	
+
+
+					
+	
+
+				</figure>
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text add_margin_30 ">
+	<h2><a id="with-matlab"></a>Interpretability with MATLAB</h2>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="horizontalrule containsResourceName section resourceClass-horizontalrule">
+
+<hr>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Using <a href="https://la.mathworks.com/products/matlab.html">MATLAB</a> with <a href="https://la.mathworks.com/products/statistics.html">Statistics and Machine Learning Toolbox™</a> enables you to you apply techniques to interpret machine learning models. Here, some popular interpretability techniques are described.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p><b>Local Interpretable Model-Agnostic Explanations (LIME)</b>: Use <a href="https://la.mathworks.com/help/stats/lime.html">LIME</a> to approximate a complex model in the neighborhood of the prediction of interest with a simple interpretable model, such as a linear model or decision tree. You can then use the simpler model as a surrogate to explain how the original (complex) model works. Figure 4 illustrates the three main steps of applying LIME.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-md-8 offset-md-2 "><div class="10527b73-5cda-4670-bbbe-688ad6815c06 parsys containsResourceName resourceClass-parsys"><div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				<figure class="figure image_container -has_zoom ">
+					<a href="https://la.mathworks.com/discovery/interpretability.html#" class="figure_img_link" data-bs-toggle="modal" data-bs-target="#modal-83e3afbf-c022-43f6-aa8a-436a005546ee">
+
+						
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083052.jpg" alt="Graphs and plots showing three main steps of applying LIME: complex model and point of interest, approximate with simple model, and explain, which equals drivers within areas of interest." width="962" height="354" sizes="100vw" loading="lazy" class="responsiveImage img-fluid figure-img fluid_image remove_border" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.150.medium.jpg/1768388083052.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.320.medium.jpg/1768388083052.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.480.medium.jpg/1768388083052.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.620.medium.jpg/1768388083052.jpg 620w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.full.medium.jpg/1768388083052.jpg 962w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-lime-object-in-matlab.jpg">
+		
+	
+
+
+						<div class="overlay_container">
+							<span class="icon-zoomin add_icon_color_white"></span>
+						</div>
+						
+					</a>
+					
+					
+	<figcaption class="figure-caption caption">
+		<p>Figure 4. By fitting a LIME object in MATLAB, you can obtain LIME explanations via a simple interpretable model.</p>
+
+	</figcaption>
+
+					
+				</figure>
+
+				
+
+				
+				
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p><b>Partial Dependence (PDP) and Individual Conditional Expectation (ICE) Plots:</b> With these methods, you examine the effect of one or two predictors on the overall prediction by averaging the output of the model over all the possible feature values. Figure 5 shows a partial dependence plot that was generated with the&nbsp;<a href="https://la.mathworks.com/help/stats/regressiontree.plotpartialdependence.html"><code>plotPartialDependence</code></a> function.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Strictly speaking, a partial dependence plot shows that certain ranges in the value of a predictor are associated with specific likelihoods for prediction; that’s not sufficient to establish a causal relationship between predictor values and prediction. However, if a local interpretability method like LIME indicates the predictor significantly influenced the prediction (in an area of interest), you can arrive at an explanation why a model behaved a certain way in that local area.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p><b>Shapley Values:</b> This technique explains how much each predictor contributes to a prediction by calculating the deviation of a prediction of interest from the average. This method is particularly popular within the finance industry because it is derived from game theory as its theoretical underpinning, and because it satisfies the regulatory requirement of providing complete explanations: the sum of the Shapley values for all features corresponds to the total deviation of the prediction from the average. The <code><a href="https://la.mathworks.com/help/stats/shapley.html">shapley</a></code> function computes Shapley values for a query point of interest.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Evaluating all combinations of features generally takes a long time. Therefore, Shapley values are often approximated by applying&nbsp;<a href="https://la.mathworks.com/discovery/monte-carlo-simulation.html">Monte Carlo simulation</a>&nbsp;in practice.</p>
+<p>Figure 6 shows that in the context of predicting heart arrhythmia near the sample of interest, MFCC4 had a strong positive impact on predicting “abnormal,” while MFCC11 and 5 leaned against that prediction, i.e., toward a “normal” heart.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  add_equal_heights">
+
+	
+		<div class=" col-12 col-md-6 "><div class="90f3144d-6f17-4914-bb51-2a5101e0c338 parsys containsResourceName resourceClass-parsys"><div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				<figure class="figure image_container -has_zoom ">
+					<a href="https://la.mathworks.com/discovery/interpretability.html#" class="figure_img_link" data-bs-toggle="modal" data-bs-target="#modal-add03b2e-4d06-4dd1-aac8-425f131acb08">
+
+						
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083120.jpg" alt="A partial dependence plot with x-axis values that deviate above or below 0, representing Shapley values. The y-axis shows the features used to train the machine learning model." width="1000" height="761" sizes="100vw" loading="lazy" class="responsiveImage img-fluid figure-img fluid_image remove_border" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.150.medium.jpg/1768388083120.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.320.medium.jpg/1768388083120.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.480.medium.jpg/1768388083120.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.620.medium.jpg/1768388083120.jpg 620w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.full.medium.jpg/1768388083120.jpg 1000w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig4-partial-dependence-plot.jpg">
+		
+	
+
+
+						<div class="overlay_container">
+							<span class="icon-zoomin add_icon_color_white"></span>
+						</div>
+						
+					</a>
+					
+					
+	<figcaption class="figure-caption caption">
+		<p>Figure 5. Partial dependence plot showing that the probability of “standing” decreases sharply if the gyroscope indicates significant angular velocity.</p>
+
+	</figcaption>
+
+					
+				</figure>
+
+				
+
+				
+				
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-md-6 "><div class="3f24d10a-5268-4f28-bb03-31817b3f0986 parsys containsResourceName resourceClass-parsys"><div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				<figure class="figure image_container -has_zoom ">
+					<a href="https://la.mathworks.com/discovery/interpretability.html#" class="figure_img_link" data-bs-toggle="modal" data-bs-target="#modal-f8a5773c-a835-463a-8550-e9bc02fa9e6d">
+
+						
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083105.jpg" alt="A graph with Shapley values ranging from -1 to 1.5 on the x-axis and various predictors on the y-axis. Each predictor deviates below or above a vertical line coming from 0 on the x-axis." width="691" height="516" sizes="100vw" loading="lazy" class="responsiveImage img-fluid figure-img fluid_image remove_border" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.150.medium.jpg/1768388083105.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.320.medium.jpg/1768388083105.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.480.medium.jpg/1768388083105.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.620.medium.jpg/1768388083105.jpg 620w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.full.medium.jpg/1768388083105.jpg 691w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig5-shapley-values.jpg">
+		
+	
+
+
+						<div class="overlay_container">
+							<span class="icon-zoomin add_icon_color_white"></span>
+						</div>
+						
+					</a>
+					
+					
+	<figcaption class="figure-caption caption">
+		<p>Figure 6. The Shapley values indicate how much each predictor deviates from the average prediction at the point of interest, indicated by the vertical line at zero.</p>
+
+	</figcaption>
+
+					
+				</figure>
+
+				
+
+				
+				
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p><b>Predictor Importance Estimations by Permutation:</b> MATLAB also supports <a href="https://la.mathworks.com/help/stats/classreg.learning.regr.regressionbaggedensemble.oobpermutedpredictorimportance.html">permuted predictor importance</a> for random forests. This approach takes the impact changes in predictor values have on model prediction error as an indication of predictor importance. The function shuffles the values of a predictor on test or training data and observes the magnitude of the resulting changes in error.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h3>Choosing a Method for Interpretability</h3>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p>Different interpretability methods have their own limitations and strengths; take these into account when you seek interpretability in your application. Figure 6 provides an overview of interpretability methods and guidance on how to apply them. The interpretability methods presented in Figure 7 are available in MATLAB.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-md-8 offset-md-2 "><div class="e3e3fcc8-ffcf-475d-8681-5c9e2ccf584f parsys containsResourceName resourceClass-parsys"><div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				<figure class="figure image_container -has_zoom ">
+					<a href="https://la.mathworks.com/discovery/interpretability.html#" class="figure_img_link" data-bs-toggle="modal" data-bs-target="#modal-c9b2d948-6ef0-429e-852a-21771124db3a">
+
+						
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083175.svg" alt="Diagram showing decision paths for selecting an interpretability method." width="1040" height="750" loading="lazy" class="responsiveImage img-fluid figure-img fluid_image remove_border" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig7-select-appropriate-interpretability-method.svg">
+		
+	
+
+
+						<div class="overlay_container">
+							<span class="icon-zoomin add_icon_color_white"></span>
+						</div>
+						
+					</a>
+					
+					
+	<figcaption class="figure-caption caption">
+		<p>Figure 7. How to select the appropriate interpretability method.</p>
+
+	</figcaption>
+
+					
+				</figure>
+
+				
+
+				
+				
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+
+</div>
+</div>
+		</div>
+
+		
+    
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/stickyanchornav.min.20260125152344257.css" type="text/css">
+
+
+
+	</div>
+
+
+
+
+	
+
+</div>
+
+</div>
+</div>
+				</div>
+			</div>
+		</div>
+	
+	
+    
+
+
+
+</div></div>
+<div class="cqBand containsResourceName section resourceClass-band">
+
+
+
+
+<div class="band add_background_color_gray  section_upsize  https___la_mathworks_com_discovery_interpretability__jcr_content_mainParsys_band_1751570537_backgroundImage" style="background-image: url(&#39;https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_1751570537/backgroundImage.adapt.full.low.jpg/1768388083234.jpg&#39;);">
+	
+
+	
+		
+			<style data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/global/dots-background-light.jpg">
+				@media screen and (min-width: 768px) { .https___la_mathworks_com_discovery_interpretability__jcr_content_mainParsys_band_1751570537_backgroundImage { background-image: url(https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_1751570537/backgroundImage.adapt.full.medium.jpg/1768388083234.jpg) !important; }}
+			</style>
+			
+		
+		
+		
+	
+
+	
+		<div class="container-fluid container-lg">
+			<div class="row">
+				<div class="col-12">
+					<div><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h2>Resources</h2>
+<p>Expand your knowledge through documentation, examples, videos, and more.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-md-6 "><div class="ac376306-fa5e-436b-92c0-90f232bed3cd parsys containsResourceName resourceClass-parsys"><div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				
+
+				
+
+				
+				<figure class="figure image_container ">
+					
+	
+	
+
+	
+		
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083299.svg" alt="" width="100" height="8" loading="lazy" class="responsiveImage img-fluid figure-img remove_border" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/pictograms/section-marker.svg">
+	
+
+
+					
+	
+
+				</figure>
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h3>Documentation</h3>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="relatedartifacts containsResourceName section resourceClass-relatedartifacts">
+
+	<ul class="  ">
+		
+			<li>
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/help/stats/interpret-classification-and-regression-models.html" class=" ">
+
+		
+
+		
+			
+			Overview of Interpretability in MATLAB</a>
+
+		
+		
+	
+
+				
+					- Documentation
+				
+			</li>
+		
+			<li>
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/help/deeplearning/ug/deep-learning-visualization-methods.html" class=" ">
+
+		
+
+		
+			
+			Applying Visualization and Interpretability to Deep Neural Networks</a>
+
+		
+		
+	
+
+				
+					- Documentation
+				
+			</li>
+		
+	</ul>
+
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-md-6 "><div class="49e2df42-ee5b-4f33-8130-291d80af9d92 parsys containsResourceName resourceClass-parsys"><div class="cqImage containsResourceName section resourceClass-image">
+
+
+
+
+
+
+
+
+
+
+		
+		
+		<div class="figure_container  ">
+				
+				
+
+				
+				
+
+				
+
+				
+				<figure class="figure image_container ">
+					
+	
+	
+
+	
+		
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083348.svg" alt="" width="100" height="8" loading="lazy" class="responsiveImage img-fluid figure-img remove_border" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/pictograms/section-marker.svg">
+	
+
+
+					
+	
+
+				</figure>
+		</div>
+
+		
+    
+
+
+
+
+
+
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h3>Discover More</h3>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="relatedartifacts containsResourceName section resourceClass-relatedartifacts">
+
+	<ul class="  ">
+		
+			<li>
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/videos/explainable-machine-learning-with-matlab-1597917680801.html" class=" ">
+
+		
+
+		
+			<span></span>
+			Model Interpretability in MATLAB<span class="video_length series"> (5:49)</span></a>
+
+		
+		
+	
+
+				
+					- Video
+				
+			</li>
+		
+			<li>
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/videos/lowering-barriers-to-ai-adoption-with-automl-and-interpretability-1608220803963.html" class=" ">
+
+		
+
+		
+			<span></span>
+			Lowering Barriers to AI Adoption with AutoML and Interpretability<span class="video_length series"> (35:11)</span></a>
+
+		
+		
+	
+
+				
+					- Video
+				
+			</li>
+		
+			<li>
+				
+	
+	
+	
+
+	
+
+	<a href="https://blogs.mathworks.com/deep-learning/2023/05/08/explainable-ai-xai-are-we-there-yet/" class=" ">
+
+		
+
+		
+			
+			Explainable AI (XAI): Are we there yet?</a>
+
+		
+		
+	
+
+				
+					- Blog
+				
+			</li>
+		
+			<li>
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/videos/what-is-explainable-ai-1706504956137.html" class=" ">
+
+		
+
+		
+			<span></span>
+			What Is Explainable AI?<span class="video_length series"> (3:45)</span></a>
+
+		
+		
+	
+
+				
+					- Video
+				
+			</li>
+		
+	</ul>
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+
+</div>
+</div>
+				</div>
+			</div>
+		</div>
+	
+	
+    
+
+
+
+</div></div>
+<div class="cqBand containsResourceName section resourceClass-band">
+
+
+
+
+<div class="band add_background_color_darkblue band_footer_adjacent add_revert_color  section_upsize  https___la_mathworks_com_discovery_interpretability__jcr_content_mainParsys_band_1324457062_backgroundImage" style="background-image: url(&#39;https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_1324457062/backgroundImage.adapt.full.low.jpg/1768388083417.jpg&#39;);">
+	
+
+	
+		
+			<style data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/global/offset-curves-darkblue-background.jpg">
+				@media screen and (min-width: 768px) { .https___la_mathworks_com_discovery_interpretability__jcr_content_mainParsys_band_1324457062_backgroundImage { background-image: url(https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_1324457062/backgroundImage.adapt.full.medium.jpg/1768388083417.jpg) !important; }}
+			</style>
+			
+		
+		
+		
+	
+
+	
+		<div class="container-fluid container-lg">
+			<div class="row">
+				<div class="col-12">
+					<div><div class="mainParsys parsys containsResourceName resourceClass-parsys"><div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-12 col-md-8 add_font_color_white add_link_underline "><div class="ddc7a0b8-2a8e-4d4f-bfc0-c41da7f13c1b parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<h2>Related Topics</h2>
+<p>Explore similar topic areas commonly used with MATLAB and Simulink products.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="relatedartifacts containsResourceName section resourceClass-relatedartifacts">
+
+	<ul class="  ">
+		
+			<li>
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/discovery/artificial-intelligence.html" class=" ">
+
+		
+
+		
+			
+			Artificial Intelligence</a>
+
+		
+		
+	
+
+				
+			</li>
+		
+			<li>
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/discovery/machine-learning.html" class=" ">
+
+		
+
+		
+			
+			Machine Learning</a>
+
+		
+		
+	
+
+				
+			</li>
+		
+			<li>
+				
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/discovery/deep-learning.html" class=" ">
+
+		
+
+		
+			
+			Deep Learning</a>
+
+		
+		
+	
+
+				
+			</li>
+		
+	</ul>
+
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-12 col-md-4 "><div class="eb1662d6-9a9c-4ba9-af34-ba8b25acc30f parsys containsResourceName resourceClass-parsys"><div class="spotlight containsResourceName section resourceClass-spotlight">
+
+
+
+
+
+
+
+	<div class="panel panel-default  ">
+		
+		
+		
+		<div class="panel-heading add_background_cover add_min_height_100 https___la_mathworks_com_campaigns_offers_shared_content_machine_learning_onramp__jcr_content_thumbnail" style="background-image: url(&#39;https://la.mathworks.com/campaigns/offers/shared-content/machine-learning-onramp/_jcr_content/thumbnail.adapt.1200.low.jpg/1571240547649.jpg&#39;);">
+			
+
+	
+		
+			
+			<style data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/training/machine-learning-onramp-thumbnail.jpg">
+				@media screen and (min-width: 992px) { .https___la_mathworks_com_campaigns_offers_shared_content_machine_learning_onramp__jcr_content_thumbnail { background-image: url(https://la.mathworks.com/campaigns/offers/shared-content/machine-learning-onramp/_jcr_content/thumbnail.adapt.full.medium.jpg/1571240547649.jpg) !important; }}
+				@media screen and (min-width: 768px) and (max-width: 991px){ .https___la_mathworks_com_campaigns_offers_shared_content_machine_learning_onramp__jcr_content_thumbnail { background-image: url(https://la.mathworks.com/campaigns/offers/shared-content/machine-learning-onramp/_jcr_content/thumbnail.adapt.full.low.jpg/1571240547649.jpg) !important; }}
+			</style>
+		
+		
+		
+	
+
+		</div>
+		<div class="panel-body add_padding_30">
+			
+				
+				
+				<div class="add_margin_5">
+				</div>
+				<p class="h4">
+					
+	
+	
+	
+
+	
+
+	<a href="https://matlabacademy.mathworks.com/details/machine-learning-onramp/machinelearning" class="stretched-link " target="_blank">
+
+		
+
+		
+			
+			Machine Learning Onramp</a>
+
+		
+		
+	
+
+				</p>
+				
+				
+	
+	
+	
+		
+	
+	
+		
+	
+	
+	
+	
+	
+
+	
+
+	<a href="https://matlabacademy.mathworks.com/details/machine-learning-onramp/machinelearning" class="btn btn-md btn_color_blue companion_btn btn-outline add_margin_0 " target="_blank">
+
+		
+
+		
+			
+			Get started</a>
+
+		
+		
+	
+
+
+			
+			
+		</div>
+	</div>
+	
+	
+    
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+
+</div>
+</div>
+				</div>
+			</div>
+		</div>
+	
+	
+    
+
+
+
+</div></div>
+
+</div>
+</div></section>
+	
+	
+	
+		
+
+<div><div class="modalParsys parsys containsResourceName resourceClass-parsys">
+</div>
+</div>
+
+		
+
+
+	<div id="location_content" style="display:none;"></div>
+
+	<div class="modal fade" id="country-unselected" tabindex="-1" aria-labelledby="domain_selector_label" style="padding-left: 0px; display:none;" aria-modal="true" role="dialog">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+					<img src="./Interpretability - MATLAB &amp; Simulink_files/mathworks-logo.20260125152344257.svg" class="mw_logo theme_light" alt="MathWorks" width="173" height="35">
+					<img src="./Interpretability - MATLAB &amp; Simulink_files/mathworks-logo-rev.20260125152344257.svg" class="mw_logo theme_dark" alt="MathWorks" width="173" height="35" style="display:none;">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+				</div>
+				<div class="modal-body">
+
+					<p class="h1 icon-globe" id="domain_selector_label">Seleccione un país/idioma</p>
+					<p>Seleccione un país/idioma para obtener contenido traducido, si está disponible, y ver eventos y ofertas de productos y servicios locales. Según su ubicación geográfica, recomendamos que seleccione: <strong class="recommended-country">América Latina</strong>.</p>
+					<div class="default-recommendation">
+						<p><a href="https://la.mathworks.com/" id="recommended_domain_button" class="btn btn_color_blue" data-lang="es"><span class="recommended-country">América Latina</span></a></p>
+					</div>
+
+					<div class="ch-recommendation" style="display:none;">
+						<ul class="list-inline">
+							<li class="list-inline-item add_margin_5 d-block d-md-inline-block"><a href="https://ch.mathworks.com/" class="recommendation-button btn btn-outline btn_color_blue" data-subdomain="ch" data-lang="en" data-recommended-text="Switzerland" data-default-lang="true" data-do-not-rewrite="true"><strong class="recommended-country">América Latina</strong> (English)</a></li>
+							<li class="list-inline-item add_margin_5 d-block d-md-inline-block"><a href="https://ch.mathworks.com/" class="recommendation-button btn btn-outline btn_color_blue" data-subdomain="ch" data-lang="de" data-recommended-text="Schweiz" data-do-not-rewrite="true"><strong class="recommended-country">América Latina</strong> (Deutsch)</a></li>
+							<li class="list-inline-item add_margin_5 d-block d-md-inline-block"><a href="https://ch.mathworks.com/" class="recommendation-button btn btn-outline btn_color_blue" data-subdomain="ch" data-lang="fr" data-recommended-text="Suisse" data-do-not-rewrite="true"><strong class="recommended-country">América Latina</strong> (Français)</a></li>
+						</ul>
+					</div>
+					<div class="zh-recommendation" style="display:none;">
+						<ul class="list-inline">
+							<li class="list-inline-item"><a href="https://ww2.mathworks.cn/" class="recommendation-button btn btn-outline btn_color_blue" data-subdomain="ww2" data-lang="zh" data-recommended-text="中国" data-default-lang="true" data-do-not-rewrite="true"><strong class="recommended-country">América Latina</strong>（简体中文）</a></li>
+							<li class="list-inline-item"><a href="https://ww2.mathworks.cn/" class="recommendation-button btn btn-outline btn_color_blue" data-subdomain="ww2" data-lang="en" data-recommended-text="China" data-do-not-rewrite="true"><strong class="recommended-country">América Latina</strong> (English)</a></li>
+						</ul>
+					</div>
+
+					<p>También puede seleccionar uno de estos países/idiomas:</p>
+					<div class="alert alert-warning" role="alert" id="china_performance_alert" style="display:none;"> <span class="alert_icon icon-alert-warning"></span>
+						<p class="alert_heading"><strong>Cómo obtener el mejor rendimiento</strong></p>
+						<p>Seleccione China (en idioma chino o inglés) para obtener el mejor rendimiento. Los sitios web de otros países no están optimizados para ser accedidos desde su ubicación geográfica.</p>
+					</div>
+					<div class="row add_margin_30">
+						<div class="col-12 col-sm-4 col-lg-3">
+							<p class="h3 add_bottom_rule">América</p>
+							<ul class="list-unstyled">
+								<li><a href="https://la.mathworks.com/" class="domain_selector_link" data-country-code="LA" data-subdomain="la" data-lang="es" data-default-lang="true" data-selected-text="América Latina" data-recommended-text="América Latina" data-do-not-rewrite="true">América Latina</a> (Español)</li>
+								<li><a href="https://www.mathworks.com/" class="domain_selector_link" data-country-code="CA" data-subdomain="www" data-lang="en" data-do-not-rewrite="true">Canada</a> (English)</li>
+								<li><a href="https://www.mathworks.com/" class="domain_selector_link" data-country-code="US" data-subdomain="www" data-lang="en" data-default-lang="true" data-selected-text="United States" data-recommended-text="United States" data-do-not-rewrite="true">United States</a> (English)</li>
+							</ul>
+						</div>
+						<div class="col-12 col-sm-4 col-lg-6">
+							<p class="h3 add_bottom_rule">Europa</p>
+							<div class="row">
+								<div class="col-6 col-sm-12 col-lg-6">
+									<ul class="list-unstyled">
+										<li><a href="https://nl.mathworks.com/" class="domain_selector_link" data-country-code="BE" data-subdomain="nl" data-lang="en" data-do-not-rewrite="true">Belgium</a> (English)</li>
+										<li><a href="https://se.mathworks.com/" class="domain_selector_link" data-country-code="DK" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Denmark</a> (English)</li>
+										<li><a href="https://de.mathworks.com/" class="domain_selector_link" data-country-code="DE" data-subdomain="de" data-lang="de" data-default-lang="true" data-selected-text="Deutschland" data-recommended-text="Deutschland" data-do-not-rewrite="true">Deutschland</a> (Deutsch)</li>
+										<li><a href="https://es.mathworks.com/" class="domain_selector_link" data-country-code="ES" data-subdomain="es" data-lang="es" data-default-lang="true" data-selected-text="España" data-recommended-text="España" data-do-not-rewrite="true">España</a> (Español)</li>
+										<li><a href="https://se.mathworks.com/" class="domain_selector_link" data-country-code="FI" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Finland</a> (English)</li>
+										<li><a href="https://fr.mathworks.com/" class="domain_selector_link" data-country-code="FR" data-subdomain="fr" data-lang="fr" data-default-lang="true" data-selected-text="France" data-recommended-text="France" data-do-not-rewrite="true">France</a> (Français)</li>
+										<li><a href="https://uk.mathworks.com/" class="domain_selector_link" data-country-code="IE" data-subdomain="uk" data-lang="en" data-do-not-rewrite="true">Ireland</a> (English)</li>
+										<li><a href="https://it.mathworks.com/" class="domain_selector_link" data-country-code="IT" data-subdomain="it" data-lang="it" data-default-lang="true" data-selected-text="Italia" data-recommended-text="Italia" data-do-not-rewrite="true">Italia</a> (Italiano)</li>
+										<li><a href="https://nl.mathworks.com/" class="domain_selector_link" data-country-code="LU" data-subdomain="nl" data-lang="en" data-do-not-rewrite="true">Luxembourg</a> (English)</li>
+									</ul>
+								</div>
+								<div class="col-6 col-sm-12 col-lg-6">
+									<ul class="list-unstyled">
+										<li><a href="https://nl.mathworks.com/" class="domain_selector_link" data-country-code="NL" data-subdomain="nl" data-lang="en" data-default-lang="true" data-selected-text="Benelux" data-recommended-text="Netherlands" data-do-not-rewrite="true">Netherlands</a> (English)</li>
+										<li><a href="https://se.mathworks.com/" class="domain_selector_link" data-country-code="NO" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Norway</a> (English)</li>
+										<li><a href="https://de.mathworks.com/" class="domain_selector_link" data-country-code="AT" data-subdomain="de" data-lang="de" data-do-not-rewrite="true">Österreich</a> (Deutsch)</li>
+										<li><a href="https://www.mathworks.com/" class="domain_selector_link" data-country-code="PT" data-subdomain="www" data-lang="en" data-do-not-rewrite="true">Portugal</a> (English)</li>
+										<li><a href="https://se.mathworks.com/" class="domain_selector_link" data-country-code="SE" data-subdomain="se" data-lang="en" data-default-lang="true" data-selected-text="Nordic" data-recommended-text="Sweden" data-do-not-rewrite="true">Sweden</a> (English)</li>
+										<li>Switzerland
+											<ul class="list-unstyled add_indent_20">
+												<li><a href="https://ch.mathworks.com/" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="de" data-selected-text="Schweiz" data-recommended-text="Schweiz" data-do-not-rewrite="true">Deutsch</a></li>
+												<li><a href="https://ch.mathworks.com/" id="swiss_english" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="en" data-default-lang="true" data-selected-text="Switzerland" data-recommended-text="Switzerland" data-do-not-rewrite="true">English</a></li>
+												<li><a href="https://ch.mathworks.com/" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="fr" data-selected-text="Suisse" data-recommended-text="Suisse" data-do-not-rewrite="true">Français</a></li>
+											</ul>
+										</li>
+										<li><a href="https://uk.mathworks.com/" class="domain_selector_link" data-country-code="GB" data-subdomain="uk" data-lang="en" data-default-lang="true" data-selected-text="United Kingdom" data-recommended-text="United Kingdom" data-do-not-rewrite="true">United Kingdom</a> (English)</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4 col-lg-3">
+							<p class="h3 add_bottom_rule">Asia-Pacífico</p>
+							<ul class="list-unstyled">
+								<li><a href="https://au.mathworks.com/" class="domain_selector_link" data-country-code="AU" data-subdomain="au" data-lang="en" data-default-lang="true" data-selected-text="Australia" data-recommended-text="Australia" data-do-not-rewrite="true">Australia</a> (English)</li>
+								<li><a href="https://in.mathworks.com/" class="domain_selector_link" data-country-code="IN" data-subdomain="in" data-lang="en" data-default-lang="true" data-selected-text="India" data-recommended-text="India" data-do-not-rewrite="true">India</a> (English)</li>
+								<li><a href="https://au.mathworks.com/" class="domain_selector_link" data-country-code="NZ" data-subdomain="au" data-lang="en" data-do-not-rewrite="true">New Zealand</a> (English)</li>
+								<li>中国
+									<ul class="list-unstyled add_indent_20">
+										<li><a href="https://ww2.mathworks.cn/" class="domain_selector_link" data-country-code="CN" data-subdomain="ww2" data-lang="zh" data-default-lang="true" data-selected-text="中国" data-recommended-text="中国" data-do-not-rewrite="true">简体中文</a></li>
+										<li><a href="https://ww2.mathworks.cn/" class="domain_selector_link" data-country-code="CN" data-subdomain="ww2" data-lang="en" data-default-lang="true" data-selected-text="China" data-recommended-text="China" data-do-not-rewrite="true">English</a></li>
+									</ul>
+								</li>
+								<li><a href="https://jp.mathworks.com/" class="domain_selector_link" data-country-code="JP" data-subdomain="jp" data-lang="ja" data-default-lang="true" data-selected-text="日本" data-recommended-text="日本" data-do-not-rewrite="true">日本</a> (日本語)</li>
+								<li><a href="https://kr.mathworks.com/" class="domain_selector_link" data-country-code="KR" data-subdomain="kr" data-lang="ko" data-default-lang="true" data-selected-text="한국" data-recommended-text="한국" data-do-not-rewrite="true">한국</a> (한국어)</li>
+							</ul>
+						</div>
+					</div>
+					<p class="text-center"><a href="https://la.mathworks.com/" class="worldwide_link" data-do-not-rewrite="true" data-lang="es">Comuníquese con su oficina local</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+    
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/alert.min.20260125152344257.css" type="text/css">
+
+
+
+
+
+
+
+
+    
+<script src="./Interpretability - MATLAB &amp; Simulink_files/domainselector.min.20260125152344257.js.descarga"></script>
+
+
+
+	
+</main>
+
+			
+		</div>
+		
+		
+
+<footer id="footer">
+	
+	
+	<div class="extended_footer" id="extended_footer">
+		<div class="container-fluid container-lg">
+			<div><div class="fatFooterParsys iparsys parsys resourceClass-iparsys containsResourceName"><div class="section"><div class="new containsResourceName resourceClass-new"></div>
+</div><div class="iparys_inherited"><div class="fatFooterParsys iparsys parsys containsResourceName resourceClass-par"><div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  ">
+
+	
+		<div class=" col-lg-3 mb-2 col-12 "><div class="1 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="h4 mb-0">MathWorks</p>
+<p><i>Accelerating the pace of engineering and science</i></p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="d-none d-md-block">MathWorks es el líder en el desarrollo de software de cálculo matemático para ingenieros y científicos.</p>
+
+	
+		
+		
+	
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="d-none d-md-block"><a href="https://la.mathworks.com/company/aboutus/contact_us.html?s_tid=m_footer_contact" data-target="same"><span class="add_font_color_darkblue">¿Necesita ayuda?  <u>Contáctenos</u></span></a></p>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-lg-9 col-12 "><div class="2 parsys containsResourceName resourceClass-parsys"><div class="cqColumns containsResourceName section resourceClass-columns"><div class="row  row-cols-1 row-cols-md-5 ">
+
+	
+		<div class=" col "><div class="1 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="ef_title"><a href="https://la.mathworks.com/discovery/interpretability.html#ef_products" class="dropdown-toggle" role="button" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ef_products">Explorar productos</a></p>
+<div class="collapse" id="ef_products">
+ <ul class="list-unstyled">
+  <li><a href="https://la.mathworks.com/products/matlab.html?s_tid=m_footer_matlab">MATLAB</a></li>
+  <li><a href="https://la.mathworks.com/products/simulink.html?s_tid=m_footer_simulink">Simulink</a></li>
+  <li><a href="https://la.mathworks.com/products/matlab/student.html?s_tid=m_footer_student">Software para estudiantes</a></li>
+  <li><a href="https://la.mathworks.com/hardware-support/home.html?s_tid=m_footer_hardware">Soporte para hardware</a></li>
+  <li><a href="https://la.mathworks.com/matlabcentral/fileexchange/?s_tid=m_footer_fex">File Exchange</a></li>
+ </ul>
+</div>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col "><div class="2 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="ef_title"><a href="https://la.mathworks.com/discovery/interpretability.html#ef_buy" role="button" class="dropdown-toggle" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ef_buy">Probar o comprar</a></p>
+<div class="collapse" id="ef_buy">
+ <ul class="list-unstyled">
+  <li><a href="https://la.mathworks.com/downloads/web_downloads/?s_tid=m_footer_downloads">Descargas</a></li>
+  <li><a href="https://la.mathworks.com/campaigns/products/trials.html?s_tid=m_footer_try" data-link="lead" data-offertype="trial" data-component="footer">Software de prueba</a></li>
+  <li><a href="https://la.mathworks.com/company/aboutus/contact_us/contact_sales.html?s_tid=m_footer_sales" data-link="lead" data-offertype="Contact Sales" data-component="footer">Comuníquese con ventas</a></li>
+  <li><a href="https://la.mathworks.com/pricing-licensing.html?s_tid=m_footer_pricing" data-link="lead" data-offertype="pl" data-component="footer">Precios y licencias</a></li>
+  <li><a href="https://la.mathworks.com/store/terms?s_tid=m_footer_store" data-link="store" data-component="footer">Términos y condiciones generales</a></li>
+ </ul>
+</div>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col "><div class="3 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="ef_title"><a href="https://la.mathworks.com/discovery/interpretability.html#ef_use" role="button" class="dropdown-toggle" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ef_use">Aprender a utilizar</a></p>
+<div class="collapse" id="ef_use">
+ <ul class="list-unstyled">
+  <li><a href="https://la.mathworks.com/help/?s_tid=m_footer_doc">Documentación</a></li>
+  <li><a href="https://la.mathworks.com/support/learn-with-matlab-tutorials.html?s_tid=m_footer_tutorials">Tutoriales</a></li>
+  <li><a href="https://la.mathworks.com/help/examples.html?s_tid=m_footer_examples">Ejemplos</a></li>
+  <li><a href="https://la.mathworks.com/learn/training.html?s_tid=m_footer_training">Formación</a></li>
+  <li><a href="https://la.mathworks.com/discovery.html?s_tid=m_footer_discovery">Conceptos básicos</a></li>
+ </ul>
+</div>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col "><div class="4 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="ef_title"><a href="https://la.mathworks.com/discovery/interpretability.html#ef_support" role="button" class="dropdown-toggle" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ef_support">Obtener soporte</a></p>
+<div class="collapse" id="ef_support">
+ <ul class="list-unstyled">
+  <li><a href="https://la.mathworks.com/help/install/?s_tid=m_footer_install">Ayuda para la instalación	</a></li>
+  <li><a href="https://la.mathworks.com/matlabcentral/answers/index?s_tid=m_footer_answers">MATLAB Answers</a></li>
+  <li><a href="https://la.mathworks.com/services/consulting.html?s_tid=m_footer_consulting">Consultoría</a></li>
+  <li><a href="https://la.mathworks.com/licensecenter/?s_tid=m_footer_license">Centro de licencias</a></li>
+  <li><a href="https://la.mathworks.com/support/contact_us.html?s_tid=m_footer_support">Comuníquese con soporte</a></li>
+ </ul>
+</div>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col "><div class="5 parsys containsResourceName resourceClass-parsys"><div class="text containsResourceName section resourceClass-text"><div class="mw-text  ">
+	<p class="ef_title"><a href="https://la.mathworks.com/discovery/interpretability.html#ef_about" role="button" class="dropdown-toggle" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false" aria-controls="ef_about">Acerca de MathWorks</a></p>
+<div class="collapse" id="ef_about">
+ <ul class="list-unstyled">
+  <li><a href="https://la.mathworks.com/company/jobs/opportunities.html?s_tid=m_footer_careers">Ofertas de empleo
+</a></li>
+  <li><a href="https://la.mathworks.com/company/newsroom.html?s_tid=m_footer_newsroom">Sala de prensa</a></li>
+  <li><a href="https://la.mathworks.com/company/aboutus/soc_mission.html?s_tid=m_footer_socialmission">Misión social</a></li>
+  <li><a href="https://la.mathworks.com/company/customer-stories.html?s_tid=m_footer_customerstories">Casos prácticos</a></li>
+  <li><a href="https://la.mathworks.com/company.html?s_tid=m_footer_about">Acerca de MathWorks</a></li>
+ </ul>
+</div>
+
+	
+		
+		
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+		</div>
+	</div>
+
+	<div class="primary_footer" id="primary_footer">
+		<div class="container-fluid container-lg">
+			<div class="row align-items-start">
+				<div class="col-12 col-md-9">
+					<nav aria-label="Navegación de pie de página">
+						<ul class="list-inline" id="countrynav">
+							<li class="list-inline-item footernav_country">
+								<button class="btn btn-outline btn_countrynav" id="domainButton" data-bs-toggle="modal" data-bs-target="#country-unselected">
+									<span class="visually-hidden">Seleccione un país/idioma</span>
+									<span class="icon-globe"></span>
+									<span id="countrySelectorButtonText">América Latina</span>
+								</button>
+							</li>
+						</ul>
+						
+						<div class="footerNavigation footernavigation containsResourceName resourceClass-footernavigation">
+
+
+
+	<ul class="list-inline " id="footernav" data-privacy="Your Privacy Choices">
+		<li class="list-inline-item" id="footernav_footernav_patents">
+			
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/company/trust-center.html?s_tid=gf_tc" class=" ">
+
+		
+
+		
+			
+			Centro de confianza</a>
+
+		
+		
+	
+
+		</li>
+	
+		<li class="list-inline-item" id="footernav_footernav_trademarks">
+			
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/company/trust-center/trademarks.html?s_tid=gf_trd" class=" ">
+
+		
+
+		
+			
+			Marcas comerciales</a>
+
+		
+		
+	
+
+		</li>
+	
+		<li class="list-inline-item" id="footernav_footernav_privacy">
+			
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/company/trust-center/privacy-policy.html?s_tid=gf_priv" class=" ">
+
+		
+
+		
+			
+			Política de privacidad</a>
+
+		
+		
+	
+
+		</li>
+	
+		<li class="list-inline-item" id="footernav_footernav_piracy">
+			
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/company/trust-center/piracy.html?s_tid=gf_pir" class=" ">
+
+		
+
+		
+			
+			Antipiratería</a>
+
+		
+		
+	
+
+		</li>
+	
+		<li class="list-inline-item" id="footernav_footernav_status">
+			
+	
+	
+	
+
+	
+
+	<a href="https://status.mathworks.com/?s_tid=gf_application" class=" ">
+
+		
+
+		
+			
+			Estado de las aplicaciones</a>
+
+		
+		
+	
+
+		</li>
+	
+		<li class="list-inline-item" id="footernav_footernav_contactus">
+			
+	
+	
+	
+
+	
+
+	<a href="https://la.mathworks.com/company/aboutus/contact_us.html?s_tid=gf_contact" class=" ">
+
+		
+
+		
+			
+			Información de contacto</a>
+
+		
+		
+	
+
+		</li>
+	</ul>
+
+
+
+
+    
+<script src="./Interpretability - MATLAB &amp; Simulink_files/footernavigation.min.20260125152344257.js.descarga"></script>
+
+
+
+</div>
+
+						
+						<div class="footerCompanyAddress footercompanyaddress containsResourceName resourceClass-footercompanyaddress">
+
+
+	
+
+
+</div>
+
+					</nav>
+					
+					<div class="footerParsys iparsys parsys resourceClass-iparsys containsResourceName"><div class="section"><div class="new containsResourceName resourceClass-new"></div>
+</div><div class="iparys_inherited"><div class="footerParsys iparsys parsys containsResourceName resourceClass-par"></div>
+</div>
+</div>
+
+					<p class="copyright">© 1994-2026 The MathWorks, Inc.</p>
+				</div>
+				<div class="col-12 col-md-3">
+					<div class="socialmedia float-md-end" id="socialmedia">
+						
+						<div><div class="socialMediaIconParsys iparsys parsys resourceClass-iparsys containsResourceName"><div class="section"><div class="new containsResourceName resourceClass-new"></div>
+</div><div class="iparys_inherited"><div class="socialMediaIconParsys iparsys parsys containsResourceName resourceClass-par"><div class="socialmediaicon containsResourceName resourceClass-socialmediaicon section">
+
+
+
+
+	<ul class="list-inline socialmedia_icons ">
+		
+			<li class="list-inline-item">
+				<a href="https://www.facebook.com/MATLAB" rel="noreferrer" target="_blank">
+					<img class="ico_facebook" alt="Facebook" width="32" height="32" src="./Interpretability - MATLAB &amp; Simulink_files/ico-facebook.20260125152344257.svg">
+				</a>
+
+				
+
+			</li>
+		
+			<li class="list-inline-item">
+				<a href="https://x.com/MATLAB" rel="noreferrer" target="_blank">
+					<img class="ico_twitter" alt="Twitter" width="32" height="32" src="./Interpretability - MATLAB &amp; Simulink_files/ico-twitter.20260125152344257.svg">
+				</a>
+
+				
+
+			</li>
+		
+			<li class="list-inline-item">
+				<a href="https://www.instagram.com/matlab/" rel="noreferrer" target="_blank">
+					<img class="ico_instagram" alt="Instagram" width="32" height="32" src="./Interpretability - MATLAB &amp; Simulink_files/ico-instagram.20260125152344257.svg">
+				</a>
+
+				
+
+			</li>
+		
+			<li class="list-inline-item">
+				<a href="https://www.youtube.com/user/MATLAB" rel="noreferrer" target="_blank">
+					<img class="ico_youtube" alt="YouTube" width="32" height="32" src="./Interpretability - MATLAB &amp; Simulink_files/ico-youtube.20260125152344257.svg">
+				</a>
+
+				
+
+			</li>
+		
+			<li class="list-inline-item">
+				<a href="https://www.linkedin.com/company/the-mathworks_2" rel="noreferrer" target="_blank">
+					<img class="ico_linkedin" alt="LinkedIn" width="32" height="32" src="./Interpretability - MATLAB &amp; Simulink_files/ico-linkedin.20260125152344257.svg">
+				</a>
+
+				
+
+			</li>
+		
+			<li class="list-inline-item">
+				<a href="https://la.mathworks.com/company/rss.html" rel="noreferrer">
+					<img class="ico_rss" alt="RSS" width="32" height="32" src="./Interpretability - MATLAB &amp; Simulink_files/ico-rss.20260125152344257.svg">
+				</a>
+
+				
+
+			</li>
+		
+		
+	</ul>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+</footer>
+
+
+
+		
+			
+    
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/button.min.20260125152344257.css" type="text/css">
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/downsize.min.20260125152344257.css" type="text/css">
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/upsize.min.20260125152344257.css" type="text/css">
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/tags.min.20260125152344257.css" type="text/css">
+<link rel="stylesheet" href="./Interpretability - MATLAB &amp; Simulink_files/bs5-footer.min.20260125152344257.css" type="text/css">
+<script src="./Interpretability - MATLAB &amp; Simulink_files/akamai.min.20260125152344257.js.descarga"></script>
+<script src="./Interpretability - MATLAB &amp; Simulink_files/substitutepricing.min.20260125152344257.js.descarga"></script>
+
+
+
+
+			
+    
+<script src="./Interpretability - MATLAB &amp; Simulink_files/domainredirect.min.20260125152344257.js.descarga"></script>
+
+
+
+
+			
+    
+<script src="./Interpretability - MATLAB &amp; Simulink_files/jquery.min.20260125152344257.js.descarga"></script>
+
+
+
+			
+    
+<script src="./Interpretability - MATLAB &amp; Simulink_files/bootstrap5.min.20260125152344257.js.descarga"></script>
+
+
+
+			
+    
+<script src="./Interpretability - MATLAB &amp; Simulink_files/signinanalytics.min.20260125152344257.js.descarga"></script>
+<script src="./Interpretability - MATLAB &amp; Simulink_files/spotlight.min.20260125152344257.js.descarga"></script>
+<script src="./Interpretability - MATLAB &amp; Simulink_files/bs5.min.20260125152344257.js.descarga"></script>
+
+
+
+			
+			
+				
+    
+<script src="./Interpretability - MATLAB &amp; Simulink_files/corporatenav.min.20260125152344257.js.descarga"></script>
+
+
+
+				<div class="modal-backdrop fade show" id="corporate_nav_modal"></div>
+			
+			
+			
+
+			
+			<a href="https://la.mathworks.com/discovery/interpretability.html#" id="go-top" class="btn btn_color_mediumgray" tabindex="0" aria-hidden="true" aria-label="Back to top"><span class="icon-arrow-open-up icon_24"></span></a>
+			<div id="web-application-footer-assets"></div>
+
+			
+
+			
+
+		
+
+	<script type="text/javascript" nonce="" src="./Interpretability - MATLAB &amp; Simulink_files/VrHFdFI0oB"></script>
+
+
+
+<div class="modal fade" id="modal-e345a388-030e-491f-973c-9fd4a5a5f003" tabindex="-1" style="padding-left: 0px; display:none;" role="dialog" aria-modal="true">
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+							</div>
+							<div class="modal-body">
+								
+	
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082715.svg" alt="Graph showing machine learning algorithms plotted with interpretability on the x-axis versus their predictive power on the y-axis." width="691" height="615" loading="lazy" class="responsiveImage d-block mx-auto" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig1-tradeoff-performance-interpretability-graph.svg">
+		
+	
+
+
+							</div>
+							<div class="modal-footer caption">
+								<p>Figure 1. Tradeoff between performance and interpretability for multiple popular machine learning algorithms.</p>
+
+							</div>
+						</div>
+					</div>
+				</div><div class="modal fade" id="modal-cd5aa7bd-2b89-41d9-b164-545b8a8a0c23" tabindex="-1" style="padding-left: 0px; display:none;" role="dialog" aria-modal="true">
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+							</div>
+							<div class="modal-body">
+								
+	
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388082785.svg" alt="Graph with dots grouped into regions representing global and local interpretability." width="1000" height="430" loading="lazy" class="responsiveImage d-block mx-auto" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig2-local-global-interpretation-graph.svg">
+		
+	
+
+
+							</div>
+							<div class="modal-footer caption">
+								<p>Figure 3. Global vs. local interpretability: The two classes are represented by purple and orange dots.</p>
+
+							</div>
+						</div>
+					</div>
+				</div><div class="modal fade" id="modal-83e3afbf-c022-43f6-aa8a-436a005546ee" tabindex="-1" style="padding-left: 0px; display:none;" role="dialog" aria-modal="true">
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+							</div>
+							<div class="modal-body">
+								
+	
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083052.jpg" alt="Graphs and plots showing three main steps of applying LIME: complex model and point of interest, approximate with simple model, and explain, which equals drivers within areas of interest." width="962" height="354" sizes="100vw" loading="lazy" class="responsiveImage d-block mx-auto" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.150.medium.jpg/1768388083052.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.320.medium.jpg/1768388083052.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.480.medium.jpg/1768388083052.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.620.medium.jpg/1768388083052.jpg 620w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_159533465/10527b73-5cda-4670-bbbe-688ad6815c06/image_1118953524.adapt.full.medium.jpg/1768388083052.jpg 962w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-lime-object-in-matlab.jpg">
+		
+	
+
+
+							</div>
+							<div class="modal-footer caption">
+								<p>Figure 4. By fitting a LIME object in MATLAB, you can obtain LIME explanations via a simple interpretable model.</p>
+
+							</div>
+						</div>
+					</div>
+				</div><div class="modal fade" id="modal-add03b2e-4d06-4dd1-aac8-425f131acb08" tabindex="-1" style="padding-left: 0px; display:none;" role="dialog" aria-modal="true">
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+							</div>
+							<div class="modal-body">
+								
+	
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083120.jpg" alt="A partial dependence plot with x-axis values that deviate above or below 0, representing Shapley values. The y-axis shows the features used to train the machine learning model." width="1000" height="761" sizes="100vw" loading="lazy" class="responsiveImage d-block mx-auto" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.150.medium.jpg/1768388083120.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.320.medium.jpg/1768388083120.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.480.medium.jpg/1768388083120.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.620.medium.jpg/1768388083120.jpg 620w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/90f3144d-6f17-4914-bb51-2a5101e0c338/image.adapt.full.medium.jpg/1768388083120.jpg 1000w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig4-partial-dependence-plot.jpg">
+		
+	
+
+
+							</div>
+							<div class="modal-footer caption">
+								<p>Figure 5. Partial dependence plot showing that the probability of “standing” decreases sharply if the gyroscope indicates significant angular velocity.</p>
+
+							</div>
+						</div>
+					</div>
+				</div><div class="modal fade" id="modal-f8a5773c-a835-463a-8550-e9bc02fa9e6d" tabindex="-1" style="padding-left: 0px; display:none;" role="dialog" aria-modal="true">
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+							</div>
+							<div class="modal-body">
+								
+	
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083105.jpg" alt="A graph with Shapley values ranging from -1 to 1.5 on the x-axis and various predictors on the y-axis. Each predictor deviates below or above a vertical line coming from 0 on the x-axis." width="691" height="516" sizes="100vw" loading="lazy" class="responsiveImage d-block mx-auto" srcset="https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.150.medium.jpg/1768388083105.jpg 150w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.320.medium.jpg/1768388083105.jpg 320w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.480.medium.jpg/1768388083105.jpg 480w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.620.medium.jpg/1768388083105.jpg 620w, https://la.mathworks.com/discovery/interpretability/_jcr_content/mainParsys/band_312681515/mainParsys/lockedsubnav_copy/mainParsys/columns_58239873/3f24d10a-5268-4f28-bb03-31817b3f0986/image_1142143329_cop.adapt.full.medium.jpg/1768388083105.jpg 691w" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig5-shapley-values.jpg">
+		
+	
+
+
+							</div>
+							<div class="modal-footer caption">
+								<p>Figure 6. The Shapley values indicate how much each predictor deviates from the average prediction at the point of interest, indicated by the vertical line at zero.</p>
+
+							</div>
+						</div>
+					</div>
+				</div><div class="modal fade" id="modal-c9b2d948-6ef0-429e-852a-21771124db3a" tabindex="-1" style="padding-left: 0px; display:none;" role="dialog" aria-modal="true">
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="modal-header">
+								
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+							</div>
+							<div class="modal-body">
+								
+	
+	
+	
+
+	
+		
+		<img src="./Interpretability - MATLAB &amp; Simulink_files/1768388083175.svg" alt="Diagram showing decision paths for selecting an interpretability method." width="1040" height="750" loading="lazy" class="responsiveImage d-block mx-auto" data-aem-src="/content/dam/mathworks/mathworks-dot-com/images/responsive/supporting/discovery/interpretability-discovery-page-fig7-select-appropriate-interpretability-method.svg">
+		
+	
+
+
+							</div>
+							<div class="modal-footer caption">
+								<p>Figure 7. How to select the appropriate interpretability method.</p>
+
+							</div>
+						</div>
+					</div>
+				</div><script>
+// InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2)
+(function() {
+  //var host = 'www-test1.mathworks.com'; //Use this to test in lower environment
+  //var host = 'nl.mathworks.com'; //Use this to test in lower environment
+  var host = 'mathworks.com'; //Use this for production environment
+  //var host = window.location.hostname;
+  //console.log('Host Value Set: ', host);
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', 'zfNtLVVEHXE-1', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  }
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+  
+  // GPP Stub (to prevent window.__gpp is not a function error) added by Jp on 27-Aug-2025.
+if (typeof window.__gpp !== "function") {
+  var gppQueue = [];
+  window.__gpp = function() {
+    gppQueue.push(arguments);
+  };
+  window.__gpp.queue = gppQueue;
+}
+})();
+// End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2)
+
+// Variables initialization
+const isInUS = _satellite.getVar('isInUSCountry');
+const DOMAIN = _satellite.getVar('treasureDataSscDomain');
+const CMP_CONSENT_COOKIE = 'cmpConsent';
+var server = window.location.hostname;
+var path = window.location.pathname;
+var google = false;
+var facebook = false;
+var quantcast = false;
+var twitter = false;
+var twitterJapan = false;
+var adCloud = false;
+var linkedIn = false;
+var yahoo = false;
+var across = false;
+var baidu = false;
+var weChat = false;
+var researchGate = false;
+var terminus = false;
+var fancyDigital = false;
+var quora = false;
+var appcast = false;
+var indeed = false;
+var glassdoor = false;
+var consentResult = false;
+var liResult = false;
+var bing = false;
+var bingChina = false;
+var qualaroo = false;
+var qualarooChina = false;
+let nonGdprConsentFired = false;
+let gdprConsentFired = false;
+
+// Store indexOf results in variables
+var hasWw2Dash = server.indexOf('ww2-') > -1;
+var hasWw2Dot = server.indexOf('ww2.') > -1;
+var hasMatlabDot = server.indexOf('matlab.') > -1;
+var hasHomeDev = server.indexOf('home-dev') > -1;
+var hasInDash = server.indexOf('in-') > -1;
+var hasInDot = server.indexOf('in.') > -1;
+var hasKrDash = server.indexOf('kr-') > -1;
+var hasKrDot = server.indexOf('kr.') > -1;
+var hasJpDash = server.indexOf('jp-') > -1;
+var hasJpDot = server.indexOf('jp.') > -1;
+var hasMatlabAcademyDash = server.indexOf('matlabacademy-') > -1;
+var hasMatlabAcademyDot = server.indexOf('matlabacademy.') > -1;
+var hasWwwTest = server.indexOf('www-test') > -1;
+var hasWwwStage = server.indexOf('www-stage') > -1;
+var hasWwwInteg = server.indexOf('www-integ') > -1;
+var hasWwwDot = server.indexOf('www.') > -1;
+var hasJpTest = server.indexOf('jp-test') > -1;
+var hasJpStage = server.indexOf('jp-stage') > -1;
+var hasJpInteg = server.indexOf('jp-integ') > -1;
+var hasWw2Test = server.indexOf('ww2-test') > -1;
+var hasWw2Stage = server.indexOf('ww2-stage') > -1;
+var hasWw2Integ = server.indexOf('ww2-integ') > -1;
+var hasKrTest = server.indexOf('kr-test') > -1;
+var hasKrStage = server.indexOf('kr-stage') > -1;
+var hasKrInteg = server.indexOf('kr-integ') > -1;
+
+// Check if the path contains the China region
+var isChinaRegion = path.includes('/cn/');
+
+// Set services by domain
+if (!hasWw2Dash && !hasWw2Dot && !hasMatlabDot && !hasHomeDev) {//Excluded China, MATLAB, Home-Dev
+    google = true;
+    facebook = true;
+    adCloud = true;
+    //terminus = true; //Disabled as per MOD-1986 request
+	qualaroo = true;
+}
+
+if (!hasWw2Dash && !hasWw2Dot && !hasInDash && !hasInDot) {//Excluded China, India
+    //quantcast = true;	//Disabled as per MOD-3147 request
+}
+
+if (!hasWw2Dash && !hasWw2Dot && !hasKrDash && !hasKrDot && !hasJpDash && !hasJpDot) {//Excluded China, Korea, Japan
+    //twitter = true; //Disabled as per MOD-1986 request
+    linkedIn = true;
+}
+
+if (hasMatlabAcademyDash || hasMatlabAcademyDot) { //Included MATLAB Academy
+    quora = true;
+    if (isChinaRegion) { // Allow Bing only for China region
+        bingChina = true;
+    }
+}
+
+if (hasWwwTest || hasWwwStage || hasWwwInteg || hasWwwDot) {//Included Only WWW
+    quora = true;
+    appcast = true;
+	indeed = true;
+	glassdoor = true;
+}
+
+if (hasJpTest || hasJpStage || hasJpInteg || hasJpDot) {//Included Only Japan
+    yahoo = true;
+    twitterJapan = true;
+}
+
+if (hasWw2Test || hasWw2Stage || hasWw2Integ || hasWw2Dot) {//Included Only China
+    baidu = true;
+    weChat = true;
+    fancyDigital = true;
+	bingChina = true;
+	qualarooChina = true;
+}
+
+if (hasKrTest || hasKrStage || hasKrInteg || hasKrDot) {//Included Only Korea
+    across = true;
+}
+
+if (hasMatlabDot || hasHomeDev) {//Included Only MATLAB, Home-Dev(NOTE:All Inbound Script Restricted Here)
+    google = false;
+    facebook = false;
+    adCloud = false;
+    terminus = false;
+    quantcast = false;
+    twitter = false;
+    linkedIn = false;
+	researchGate = false;
+	twitterJapan = false;
+	yahoo = false;
+	across = false;
+	baidu = false;
+	weChat = false;
+	fancyDigital = false;
+	quora = false;
+	appcast = false;
+	indeed = false;
+	glassdoor = false;
+	bingChina = false;
+	qualaroo = false;
+	qualarooChina = false;
+}
+
+
+// Common function to set cookies and fire inbound scripts
+function handleConsent(consentType) {
+	_satellite.cookie.set(CMP_CONSENT_COOKIE, 'true', { domain: DOMAIN });
+	// Inbound Scripts Goes Here
+		if ((google)) { _satellite.track('googleBase'); }
+		if ((facebook)) { _satellite.track('facebookBase'); }
+		if ((quantcast)) { _satellite.track('quantcastBase'); }
+		if ((adCloud)) { _satellite.track('adCloudBase'); }
+		if ((twitter)) { _satellite.track('twitterBase'); }
+		if ((researchGate)) { _satellite.track('researchGateBase'); }
+		if ((terminus)) { _satellite.track('terminusBase'); }
+		if ((linkedIn)) { _satellite.track('linkedInBase'); }
+		if ((twitterJapan)) { _satellite.track('twitterBaseJapan'); }
+		if ((yahoo)) { _satellite.track('yahooBase'); }
+		if ((across)) { _satellite.track('acrossBase'); }
+		if ((baidu)) { _satellite.track('baiduBase'); }
+		if ((weChat)) { _satellite.track('weChatBase'); }
+		if ((fancyDigital)) { _satellite.track('fancyDigitalBase'); }
+		if ((quora)) { _satellite.track('quoraBase'); }
+		if ((appcast)) { _satellite.track('appcastBase'); }
+		if ((indeed)) { _satellite.track('indeedApplyComplete'); }
+		if ((glassdoor)) { _satellite.track('glassdoorApplyComplete'); }
+		if ((bingChina)) { _satellite.track('bingBaseChina'); }
+		if ((qualaroo)) { _satellite.track('qualarooSiteWideBaseCode'); }
+		if ((qualarooChina)) { _satellite.track('qualarooChinaBaseCode'); }
+        _satellite.logger.info(`Inbound Scripts Fired - ${consentType}`);
+		//console.log('Inbound Scripts Fired - ', consentType);
+}
+
+
+// Function to handle CCPA consent
+function handleCCPAConsent() {
+    window.__uspapi('getUSPData', 1, function (uspData, success) {
+        if (success) {
+            if (uspData.uspString[2] === 'Y') {
+                _satellite.logger.info("User Opted-Out with CCPA consent, Don't fire Inbound Scripts --> ", uspData.uspString[2]);
+            } else {
+                _satellite.logger.info("CCPA consent taken --> ", uspData.uspString[2]);
+                handleConsent('CCPA');
+            }
+        } else {
+            _satellite.logger.info("USP CMP call failed");
+        }
+    });
+}
+
+// Function to handle GDPR consent
+function handleGDPRConsent() {
+    window.__tcfapi('addEventListener', 2, function(tcData, success) {
+        if (success) {
+            if (tcData.gdprApplies) {
+                if (tcData.eventStatus === 'tcloaded' || tcData.eventStatus === 'useractioncomplete') {
+                    const consentResult = [1, 2, 3, 4, 5].every(i => tcData.purpose.consents[i]);
+                    const liResult = tcData.purpose.legitimateInterests[2] && tcData.purpose.legitimateInterests[10];
+
+                    if (consentResult && liResult) {
+                        _satellite.logger.info("GDPR consent fully granted --> ", consentResult);
+                        // --- Guard to prevent double firing ---
+                        if (!gdprConsentFired) {
+                            gdprConsentFired = true;
+                            handleConsent('GDPR');
+                        }
+                    } else {
+                        _satellite.logger.info("GDPR consent not fully granted");
+                    }
+                } else {
+                    _satellite.logger.info("TCF CMP did not load correctly or user action incomplete");
+                }
+            } else {
+                _satellite.logger.info("TCF consent reached - GDPR does not apply - Consent Not Needed");
+                // --- Guard to prevent double firing ---
+                if (!nonGdprConsentFired) {
+                    nonGdprConsentFired = true;
+                    handleConsent('Non-GDPR');
+                }
+            }
+        } else {
+            _satellite.logger.info("TCF CMP call failed");
+        }
+    });
+}
+
+// Main function to handle consent management
+async function handleConsentManagement() {
+    if (isInUS) {
+        handleCCPAConsent();
+    } else {
+        handleGDPRConsent();
+    }
+}
+
+// Initiate consent management
+handleConsentManagement();
+</script><iframe name="__tcfapiLocator" style="display: none;" src="./Interpretability - MATLAB &amp; Simulink_files/saved_resource(1).html"></iframe><script>
+var _elqQ = _elqQ || [];
+_elqQ.push(["elqSetSiteId", "646005169"]), _elqQ.push(["elqUseFirstPartyCookie", "tracking.mathworks.com"]), _elqQ.push(["elqTrackPageView", window.location.href]),
+  function() {
+    function e() {
+      var e = document.createElement("script");
+      e.type = "text/javascript", e.async = !0, e.src = "//img03.en25.com/i/elqCfg.min.js";
+      var t = document.getElementsByTagName("script")[0];
+      t.parentNode.insertBefore(e, t)
+    }
+    e()
+  }();
+</script><script>
+//TD JS SDK
+!function(t,e){if(void 0===e[t]){e[t]=function(){e[t].clients.push(this),this._init=[Array.prototype.slice.call(arguments)]},e[t].clients=[];for(var r=["addRecord","blockEvents","fetchServerCookie","fetchGlobalID","fetchUserSegments","resetUUID","ready","setSignedMode","setAnonymousMode","set","trackEvent","trackPageview","trackClicks","unblockEvents"],s=0;s<r.length;s++){var c=r[s];e[t].prototype[c]=function(t){return function(){return this["_"+t]=this["_"+t]||[],this["_"+t].push(Array.prototype.slice.call(arguments)),this}}(c)}var n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.treasuredata.com/sdk/3.1.3/td.min.js";var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o)}}("Treasure",this);
+
+// Configure an instance for your database
+var td = new Treasure({
+  writeKey: '11849/ea916395a5d7f890f5616f32b583a64d93ee220e',
+  database: _satellite.getVar('treasureDataTable'),
+  useNewJavaScriptEndpoint: true,
+  host: 'us01.records.in.treasuredata.com',
+  sscDomain: _satellite.getVar('treasureDataSscDomain'),
+  sscServer: _satellite.getVar('treasureDataSscServer'),
+  useServerSideCookie: true
+});
+
+//set consent status
+let cmpConsent = _satellite.cookie.get('cmpConsent');
+let mwaConsent = _satellite.getVar('mwaAuthStatus')
+if (cmpConsent) {
+  td.setSignedMode();
+} else if (mwaConsent == 'logged in') {
+  td.setSignedMode();
+} else {
+  td.setAnonymousMode();
+}
+//set variables for TD
+let visitor_id = _satellite.getVar('visitorId');
+let eloqua_guid_id = _satellite.getVar('Eloqua2');
+let pagename = _satellite.getVar('pageName');
+// Enable cross-domain tracking
+td.set('$global', 'td_global_id', 'td_global_id')
+//set td attributes
+td.set('td_clickdata_raw', {
+  td_adobe_mcvisid: visitor_id,
+  td_eloq_guid_id: eloqua_guid_id,
+  td_adobe_pagename: pagename
+});
+//fetchcookie, track page view
+td.fetchServerCookie(successCallback, errorCallback);
+//track pv functions
+function fireEvents() {
+  td.trackPageview('td_clickdata_raw');
+}
+function errorCallback() {
+  fireEvents();
+}
+function successCallback(result) {
+  // result === Server Side Cookie
+  td.set('$global', {
+    td_ssc_id: result
+  });
+  fireEvents();
+}
+//retrive the gloablId
+var successCallbackGlobalId = function(globalId) {
+  _satellite.setVar('treasureDataGlobalId', globalId);
+};
+var errorCallbackGlobalId = function(error) {
+  //cry();
+}
+if (cmpConsent) {
+  td.fetchGlobalID(successCallbackGlobalId, errorCallbackGlobalId);
+}
+
+var SuccessCallback = function(res) {
+  var tdSegments = '';
+  var tdAttributes = '';
+  tdSegments = Object.values(res[0].values);
+  localStorage.setItem('tdSegments', tdSegments);
+  for (let [key, value] of Object.entries(res[0].attributes)) {
+    tdAttributes += (`${key}:${value}` + ',')
+  }
+  localStorage.setItem('tdAttributes', tdAttributes);
+}
+
+if (cmpConsent) {
+  td.fetchUserSegments({
+    // prod
+      'audienceToken': ['180637e3-e67f-4975-9b95-2313d30ceb95'],
+    keys: {
+        'adobe_visitor_ids': visitor_id
+    }
+  }, SuccessCallback);
+}
+
+</script><script>_satellite["_runScript1"](function(event, target, Promise) {
+_satellite.cookie.set("_sdsat_eid",_satellite.getVar('eid'),1);
+});</script><script>_satellite["_runScript2"](function(event, target, Promise) {
+// Function to remove MID from the URL
+function removeMIDFromURL() {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('adobe_mc'); // Assuming 'adobe_mc' is the query parameter name
+    window.history.replaceState({}, document.title, url.toString());
+    // Log statements are typically removed or commented out in production
+    _satellite.logger.log('MID removed from URL');
+}
+
+// Register a callback to execute after the analytics call
+try {
+    if (typeof s !== 'undefined' && typeof s.registerPostTrackCallback === 'function') {
+        s.registerPostTrackCallback(function(requestUrl) {
+            // Production code usually minimizes logging
+            _satellite.logger.log('Adobe Analytics call completed');
+            _satellite.logger.log('Adobe Analytics Request URL=', requestUrl);
+            // Attempt to remove MID from the URL as soon as Adobe Analytics call is completed
+            // removeMIDFromURL();
+        });
+    } else {
+        throw new Error('Adobe Analytics object or registerPostTrackCallback method is not available');
+    }
+} catch (error) {
+    _satellite.logger.warn(error.message);
+}
+
+// Always attempt to remove MID from the URL
+removeMIDFromURL();
+});</script><script>_satellite["_runScript3"](function(event, target, Promise) {
+!function(e,t,n,o,a,c,f){e.fbq||(a=e.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},e._fbq||(e._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],(c=t.createElement(n)).async=!0,c.src=o,(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(c,f))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js"),fbq("set","autoConfig",!1,"186030155234771"),fbq("init","186030155234771"),fbq("track","PageView");
+});</script><script>_satellite["_runScript4"](function(event, target, Promise) {
+var my_awesome_script=document.createElement("script");my_awesome_script.setAttribute("src","https://www.everestjs.net/static/le/last-event-tag-latest.min.js"),document.head.appendChild(my_awesome_script);var adCloudCheck=0,adCloudInterval=setInterval((function(){"undefined"!=typeof AdCloudEvent&&(AdCloudEvent("B1441C8B533095C00A490D4D@AdobeOrg","mathwgbl"),window.clearInterval(adCloudInterval)),5==++adCloudCheck&&window.clearInterval(adCloudInterval)}),200);
+});</script><script>_satellite["_runScript5"](function(event, target, Promise) {
+var _kiq=_kiq||[];_kiq.push(["enableAccessibilityMode"]),setTimeout((function(){var e=document,t=e.getElementsByTagName("script")[0],s=e.createElement("script");s.type="text/javascript",s.async=!0,s.src="https://cl.qualaroo.com/ki.js/49559/ahy.js",t.parentNode.insertBefore(s,t)}),1);
+});</script><iframe id="qualaroo_dnt_frame" src="./Interpretability - MATLAB &amp; Simulink_files/frame.html" title="Qualaroo iframe for nudge" style="width: 1px; height: 1px; display: none; opacity: 0;"></iframe></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
