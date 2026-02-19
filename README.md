@@ -10,3 +10,6 @@ Se estan tomando algunos data de UCI
 https://archive.ics.uci.edu/
 
 
+https://github.com/sierraporta/Intro-Machine-Learning-UnderGraduated
+
+https://github.com/sierraporta/Intro-Machine-Learning-Graduated
